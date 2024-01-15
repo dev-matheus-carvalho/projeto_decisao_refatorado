@@ -1,0 +1,66 @@
+.cabecalho {
+  margin-top: 8px;
+  margin-left: 520px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.formulario {
+  margin-top: 0;
+  margin-left: 520px;
+}
+
+.cadastrar, .campos {
+  margin-left: 520px;
+}
+
+.login {
+  margin-left: 605px;
+}
+
+.criar, .fazerLogin, .msg {
+  color: #6C757D;
+}
+
+.titulo {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.form-label{
+  color: white;
+  margin-bottom: 4px;
+}
+
+.email, .senha, .repetirsenha {
+  margin-top: 16px;
+}
+
+.btn {
+  margin-top: 20px;
+  width: 400px;
+  color: #CED4DA;
+}
+
+.msg {
+  margin-top: 16px;
+}
+
+h3, p {
+  color: white;
+}
+
+input {
+  color: bisque;
+  background-color: #2F3337;
+}
+
+.aviso {
+  color: red;
+}
+
+::placeholder {
+  color: #6C757D;
+}
+
+

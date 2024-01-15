@@ -1,0 +1,670 @@
+header {
+  background-color: #212529;
+  width: calc(100% - 52px);
+  height: 60px;
+  right: 0;
+  border-bottom: 0.001px solid rgba(255, 253, 253, 0.075);
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+}
+
+.header-usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 43px;
+  cursor: pointer;
+
+  .btn {
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #084191;
+    padding: 13px;
+    border-radius: 50%;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+  }
+}
+
+.dropdown-menu {
+  margin-top: 13px !important;
+  padding: 8px;
+}
+
+.dropdown-item {
+  padding: 8px;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #d8e8fd;
+    color: #0d6cf2;
+  }
+}
+
+ul {
+  position: absolute !important;
+  z-index: 100 !important;
+}
+
+.modal {
+  margin-top: 100px;
+}
+
+.modal-content {
+  background: var(--Grayscale-600, #212529);
+  color: #d8e8fd;
+}
+
+.modal-header {
+
+  h1 {
+    color: var(--Grayscale-300, #CED4DA);
+
+    /* H5 */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    /* 150% */
+  }
+
+  svg {
+    cursor: pointer;
+  }
+}
+
+.modal-body {
+  color: var(--Grayscale-300, #CED4DA);
+
+  /* Body/Default */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 142.857% */
+}
+
+.modal-footer {
+  a {
+    color: var(--Grayscale-0, #FFF);
+    text-align: center;
+
+    /* Body/Underline */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+    text-decoration-line: underline;
+    cursor: pointer;
+  }
+
+  button {
+    border-radius: 8px;
+    background: var(--Primary-300, #0D6CF2);
+
+    display: flex;
+    height: 36px;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--Grayscale-0, #FFF);
+    text-align: center;
+
+    /* Body/default-14px */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+  }
+}
+
+.editar {
+  margin-top: 5px;
+
+  .modal-content {
+    width: 447px;
+  }
+
+  .cabecalho {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .titulo {
+    h5 {
+      margin-top: 5px;
+      color: var(--Grayscale-300, #CED4DA);
+
+      /* H5 */
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+      /* 150% */
+    }
+  }
+
+  .linha {
+    width: 12px;
+    color: #FFF;
+    margin-top: 2px;
+
+    hr {
+      border: 1.5px solid #FFF;
+    }
+  }
+
+  .campo-obrigatorio {
+    display: flex;
+
+    svg {
+      margin-top: 14px;
+      margin-right: 4px;
+    }
+
+    p {
+      margin-top: 9px;
+      color: var(--Grayscale-400, #6C757D);
+
+      /* Body/Default */
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      /* 142.857% */
+    }
+  }
+
+  .fechar {
+    cursor: pointer;
+    margin-top: 8px;
+  }
+}
+
+.corpo {
+  margin-bottom: 0;
+
+  .nome {
+    .campo-nome {
+      display: flex;
+
+      label {
+        color: var(--Grayscale-300, #CED4DA);
+
+        /* Body/Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 142.857% */
+      }
+
+      svg {
+        margin-top: 5px;
+        margin-left: 4px;
+      }
+    }
+
+    .input-nome {
+      .form-control {
+        padding-left: 8px;
+        display: flex;
+        height: 36px;
+        align-items: flex-start;
+        align-self: stretch;
+
+        border-radius: 4px;
+        border: 1px solid var(--Grayscale-400, #6C757D);
+        background: var(--Grayscale-500, #2F3337);
+
+        color: var(--Grayscale-300, #CED4DA);
+
+        /* Body/Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 142.857% */
+      }
+    }
+
+  }
+
+  .email {
+    .campo-email {
+      display: flex;
+
+      label {
+        color: var(--Grayscale-300, #CED4DA);
+
+        /* Body/Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 142.857% */
+      }
+
+      svg {
+        margin-top: 5px;
+        margin-left: 4px;
+      }
+    }
+
+
+
+    .input-email {
+      .form-control {
+        padding-left: 8px;
+        display: flex;
+        height: 36px;
+        align-items: flex-start;
+        align-self: stretch;
+
+        border-radius: 4px;
+        border: 1px solid var(--Grayscale-400, #6C757D);
+        background: var(--Grayscale-500, #2F3337);
+
+        color: var(--Grayscale-300, #CED4DA);
+
+        /* Body/Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 142.857% */
+      }
+    }
+
+  }
+
+  .form-check {
+    margin-left: 4px;
+
+    label {
+      margin-top: 2px;
+      color: var(--Grayscale-400, #6C757D);
+
+      /* Body/Default */
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      /* 142.857% */
+    }
+  }
+
+  .senha-atual {
+    .campo-senha-atual {
+      display: flex;
+
+      label {
+        color: var(--Grayscale-300, #CED4DA);
+
+        /* Body/Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 142.857% */
+      }
+
+      svg {
+        margin-top: 5px;
+        margin-left: 4px;
+      }
+    }
+
+    .input-senha-atual {
+      display: flex;
+      position: relative;
+
+      .form-control {
+        padding-left: 8px;
+        display: flex;
+        height: 36px;
+        align-items: flex-start;
+        align-self: stretch;
+
+        border-radius: 4px;
+        border: 1px solid var(--Grayscale-400, #6C757D);
+        background: var(--Grayscale-500, #2F3337);
+
+        color: var(--Grayscale-300, #CED4DA);
+
+        /* Body/Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 142.857% */
+      }
+
+      svg {
+        color: #fff;
+        position: absolute;
+        right: 20px;
+        margin-top: 12px;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  .nova-senha {
+    .campo-nova-senha {
+      display: flex;
+
+      label {
+        color: var(--Grayscale-300, #CED4DA);
+
+        /* Body/Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 142.857% */
+      }
+
+      svg {
+        margin-top: 5px;
+        margin-left: 4px;
+      }
+    }
+
+    .input-nova-senha {
+      display: flex;
+      position: relative;
+
+      .form-control {
+        padding-left: 8px;
+        display: flex;
+        height: 36px;
+        align-items: flex-start;
+        align-self: stretch;
+
+        border-radius: 4px;
+        border: 1px solid var(--Grayscale-400, #6C757D);
+        background: var(--Grayscale-500, #2F3337);
+
+        color: var(--Grayscale-300, #CED4DA);
+
+        /* Body/Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 142.857% */
+      }
+
+      svg {
+        color: #fff;
+        position: absolute;
+        right: 20px;
+        margin-top: 12px;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  .confirmar-senha {
+    .campo-confirmar-senha {
+      display: flex;
+
+      label {
+        color: var(--Grayscale-300, #CED4DA);
+
+        /* Body/Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 142.857% */
+      }
+
+      svg {
+        margin-top: 5px;
+        margin-left: 4px;
+      }
+    }
+
+    .input-confirmar-senha {
+      display: flex;
+      position: relative;
+
+      .form-control {
+        padding-left: 8px;
+        display: flex;
+        height: 36px;
+        align-items: flex-start;
+        align-self: stretch;
+
+        border-radius: 4px;
+        border: 1px solid var(--Grayscale-400, #6C757D);
+        background: var(--Grayscale-500, #2F3337);
+
+        color: var(--Grayscale-300, #CED4DA);
+
+        /* Body/Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 142.857% */
+      }
+
+      svg {
+        color: #fff;
+        position: absolute;
+        right: 20px;
+        margin-top: 12px;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+}
+
+.footer {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+
+  .cancelar-edicao-usuario {
+    margin-right: 20px;
+
+    border-radius: 8px;
+    border: 1px solid var(--Grayscale-400, #6C757D);
+    background: var(--Grayscale-0, #FFF);
+
+    color: var(--Grayscale-400, #6C757D);
+    text-align: center;
+
+    /* Body/default-14px */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+  }
+
+  .salvar-usuario {
+    border-radius: 8px;
+    background: var(--Primary-300, #0D6CF2);
+
+    color: var(--Grayscale-0, #FFF);
+    text-align: center;
+
+    /* Body/default-14px */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+  }
+
+  .salvar-usuario-desabilitado {
+    border-radius: 8px;
+    background: var(--Grayscale-100, #F5F7FA);
+
+    color: var(--Grayscale-300, #CED4DA);
+    text-align: center;
+
+    /* Body/default-14px */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+  }
+}
+
+
+.input-senha-atual-desabilitada {
+  pointer-events: none;
+  opacity: 0.5;
+
+  display: flex;
+  position: relative;
+
+  .form-control {
+    padding-left: 8px;
+    display: flex;
+    height: 36px;
+    align-items: flex-start;
+    align-self: stretch;
+
+    border-radius: 4px;
+    border: 1px solid var(--Grayscale-400, #6C757D);
+    background: var(--Grayscale-500, #2F3337);
+
+    color: var(--Grayscale-300, #CED4DA);
+
+    /* Body/Default */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+  }
+
+  svg {
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    margin-top: 12px;
+    cursor: pointer;
+  }
+}
+
+.input-nova-senha-desabilitada {
+  pointer-events: none;
+  opacity: 0.5;
+
+  display: flex;
+  position: relative;
+
+  .form-control {
+    padding-left: 8px;
+    display: flex;
+    height: 36px;
+    align-items: flex-start;
+    align-self: stretch;
+
+    border-radius: 4px;
+    border: 1px solid var(--Grayscale-400, #6C757D);
+    background: var(--Grayscale-500, #2F3337);
+
+    color: var(--Grayscale-300, #CED4DA);
+
+    /* Body/Default */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+  }
+
+  svg {
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    margin-top: 12px;
+    cursor: pointer;
+  }
+}
+
+.input-confirmar-senha-desabilitada {
+  pointer-events: none;
+  opacity: 0.5;
+
+  display: flex;
+  position: relative;
+
+  .form-control {
+    padding-left: 8px;
+    display: flex;
+    height: 36px;
+    align-items: flex-start;
+    align-self: stretch;
+
+    border-radius: 4px;
+    border: 1px solid var(--Grayscale-400, #6C757D);
+    background: var(--Grayscale-500, #2F3337);
+
+    color: var(--Grayscale-300, #CED4DA);
+
+    /* Body/Default */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+  }
+
+  svg {
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    margin-top: 12px;
+    cursor: pointer;
+  }
+}

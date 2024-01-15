@@ -1,0 +1,74 @@
+p {
+  color: white;
+  margin-bottom: 0;
+}
+
+.menu-primeiro {
+  display: flex;
+  margin-left: 0;
+  margin-top: 0;
+  background-color: aqua;
+  width: 50%;
+  // margin-right: 500px;
+}
+
+.menu-secundario {
+  margin-bottom: 0;
+  background-color: rgb(155, 192, 119);
+  // width: 100%;
+
+}
+
+.cabecalho {
+  color: white;
+  margin: 20px 0 0 20px;
+  width: 100%;
+  margin-right: 200px;
+}
+
+.menu-secundo {
+  // margin-left: 919px;
+  margin-left: 199px;
+  background-color: rgb(65, 63, 63);
+  width: 20%;
+}
+
+.menu-cadastro {
+  display: flex;
+  margin-left: 10px;
+}
+
+.linha {
+  color: white;
+  height: 766px;
+  margin-right: 0px;
+}
+
+.opcoes-rotas {
+  margin-top: 20px;
+  margin-left: 0;
+}
+
+.selecionar {
+  border-left: solid 5px #0D6CF2;
+}
+
+.link {
+  margin-left: 35px;
+}
+
+.link-ativo {
+  margin-left: 31px;
+  color: #0D6CF2;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: #6C757D;
+}
+
+.rotas, .selecionar {
+  margin-bottom: 16px;
+}

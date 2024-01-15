@@ -1,0 +1,36 @@
+header {
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+}
+
+.titulo {
+  background-color: black;
+  color: white;
+  margin-left: 20px;
+  margin-top: 6px;
+  padding-top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: 0.5px;
+}
+
+.btn {
+  margin-right: 43px;
+  padding: 0px 10px;
+}
+
+.clients {
+  background-color: burlywood;
+  height: calc(100vh - 150px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

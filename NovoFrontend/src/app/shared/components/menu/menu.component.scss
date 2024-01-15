@@ -1,0 +1,66 @@
+.menu {
+  // border-right: 1px solid var(--Grayscale-500, #2f3337);
+  background: var(--Grayscale-600, #212529);
+  // box-shadow: 0px 8px 4px 0px #1e1e1e;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+}
+
+.logo {
+  background-color: #0d6cf2;
+
+  a {
+    width: 52px;
+    height: 60px;
+    display: flex;
+    justify-content: center; // centralizar no eixo x
+    align-items: center; // centralizar no eixo y
+  }
+}
+
+.menu-home-on {
+  a {
+    border-right: 1px solid #0d6cf2;
+    width: 52px;
+    height: 60px;
+    display: flex;
+    justify-content: center; // centralizar no eixo x
+    align-items: center; // centralizar no eixo y
+    cursor: pointer;
+  }
+}
+
+.menu-home-off {
+  a {
+    width: 52px;
+    height: 60px;
+    display: flex;
+    justify-content: center; // centralizar no eixo x
+    align-items: center; // centralizar no eixo y
+    cursor: pointer;
+  }
+}
+
+.menu-cliente-on {
+  a {
+    border-right: 1px solid #0d6cf2;
+    width: 52px;
+    height: 60px;
+    display: flex;
+    justify-content: center; // centralizar no eixo x
+    align-items: center; // centralizar no eixo y
+    cursor: pointer;
+  }
+}
+
+.menu-cliente-off {
+  a {
+    width: 52px;
+    height: 60px;
+    display: flex;
+    justify-content: center; // centralizar no eixo x
+    align-items: center; // centralizar no eixo y
+    cursor: pointer;
+  }
+}

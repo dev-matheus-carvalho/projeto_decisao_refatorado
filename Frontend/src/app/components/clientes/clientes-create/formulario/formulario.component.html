@@ -1,0 +1,186 @@
+<!-- ======================== Aqui fica a maior div ============================= -->
+<div class="caixinha-um">
+
+  <!-- ====================== Aqui fica o cabeçalho geral ======================= -->
+  <div>
+
+    <!-- Apenas o cabeçalho -->
+    <div class="menu-primeiro">
+
+      <!-- Título -->
+      <h3 class="titulo">Dados cadastrais</h3>
+
+
+      <!-- A linha -->
+      <hr class="{{ campo }}">
+
+
+      <!-- A msg campo e o ícone da estrela -->
+      <p class="campos">
+        <img class="estrela" src="../../../../assets/estrela.png" alt="">
+        <span class="mensagem">Campos obrigatórios</span>
+      </p>
+
+
+      <!-- Os Status -->
+      <div class="dropdown" *ngIf="showStatus === true">
+        <button class="{{ cor }} btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+        (click)="seta()">
+        Situação: {{ status }}
+          <span *ngIf="!upDown">
+            <img src="../../../../assets/down.png" alt="">
+          </span>
+
+          <span *ngIf="upDown">
+            <img src="../../../../assets/up.png" alt="">
+          </span>
+        </button>
+
+        <ul class="dropdown-menu">
+
+          <li>
+            <button class="fundo dropdown-item" type="button"
+            (click)="statusAtivo()">
+            {{ ativo }}</button></li>
+
+          <li><button class="fundo dropdown-item" type="button"
+            (click)="statusInativo()">{{ inativo }}</button></li>
+
+          <li><button class="fundo dropdown-item" type="button"
+            (click)="statusNegativo()">{{ negativo }}</button></li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <!-- ================== Os formulários e os botões ficam aqui =============== -->
+
+    <div>
+      <div class="formulario-um">
+
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">
+            <span class="cpf-cnpj">CNPJ/CPF</span>
+            <img class="estrela-um" src="../../../../../assets/estrela.png" alt="estrela">
+          </label>
+
+          <input type="text" class="input-cpf-cnpj form-control" placeholder="00.000.000/0000-00"
+          [(ngModel)]="identificacao" disabled="{{desabilatar}}">
+          <p class="msgAviso" *ngIf="showMsgValidacao">{{ msgAviso }}</p>
+        </div>
+
+        <div class="mb-3 data" *ngIf="showDataCriacao">
+          <label for="formGroupExampleInput" class="form-label">Data de cadastro</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="27/11/2023" disabled>
+        </div>
+
+      </div>
+
+
+
+      <div class="formulario-dois">
+
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">
+            <span class="cpf-cnpj">Nome</span>
+            <img class="estrela-um" src="../../../../../assets/estrela.png" alt="estrela">
+          </label>
+
+          <input type="text" class="input-nome form-control" id="formGroupExampleInput" placeholder="Insira o nome do cliente"
+          [(ngModel)]="nome">
+          <p class="msgAviso" *ngIf="showMsgValidacaoNome">{{ msgAvisoNome }}</p>
+        </div>
+
+        <div class="mb-3" *ngIf="showNomeIdentificacao">
+          <label for="formGroupExampleInput" class="form-label">
+            <span class="cpf-cnpj">{{ msgInputIdentificacao }}</span>
+            <img class="estrela-um" src="../../../../../assets/estrela.png" alt="estrela">
+          </label>
+
+          <input *ngIf="habilitarNomeFantasia" type="text" class="input-nome-fantasia form-control" id="formGroupExampleInput" placeholder="Insira o nome fantasia do CNPJ"
+          [(ngModel)]="nome_fantasia">
+
+          <input *ngIf="habilitarNomeMae" type="text" class="input-nome-fantasia form-control" id="formGroupExampleInput" placeholder="Insira o nome da mãe do cliente"
+          [(ngModel)]="nome_mae">
+        </div>
+
+      </div>
+
+      <div class="formulario-tres">
+
+        <div class="mb-3" *ngIf="showInscricaoMunicipal">
+          <label for="formGroupExampleInput" class="form-label">
+            <span class="cpf-cnpj">Inscrição Municipal</span>
+            <img class="estrela-um" src="../../../../../assets/estrela.png" alt="estrela">
+          </label>
+
+          <input type="text" class="input-municipio form-control" id="formGroupExampleInput"
+          [(ngModel)]="inscricao_municipal">
+        </div>
+
+        <div class="mb-3" *ngIf="showInscricaoEstadual">
+          <label for="formGroupExampleInput" class="form-label">
+            <span class="cpf-cnpj">Inscrição Estadual</span>
+            <img class="estrela-um" src="../../../../../assets/estrela.png" alt="estrela">
+          </label>
+
+          <input type="text" class="input-estado form-control" id="formGroupExampleInput"
+          [(ngModel)]="inscricao_estadual">
+        </div>
+
+      </div>
+
+      <!-- Botões -->
+      <div class="{{ posicaoBotoes }}">
+        <button type="button" class="cancelar btn btn-light" (click)="cancelar()" routerLink="/clientes/listar">Cancelar</button>
+        <button *ngIf="habilitarBotaoCriar" type="button" class="salvar btn btn-primary" (click)="criarCliente()">Salvar cliente</button>
+        <button *ngIf="habilitarBotaoUpdate" type="button" class="salvar btn btn-primary" (click)="atualizarCliente()">Salvar cliente</button>
+        <button *ngIf="habilitarBotaoFinalizar" type="button" class="salvar btn btn-primary" (click)="finalizarCadastro()">Salvar cliente</button>
+      </div>
+    </div> <!-- Final dos formulários e botões -->
+
+  </div> <!-- Final cabeçalho geral -->
+
+
+
+
+
+  <!-- Aqui fica a opção de navegação -->
+  <div class="menu-secundo">
+        <div class="menu-cadastro">
+          <div class="linha d-flex">
+            <div class="vr"></div>
+          </div>
+
+          <div class="opcoes-rotas">
+            <p class="{{ cadastro }}"><a class="{{ cadastro_ativo }}" routerLink="/clientes/criar/formulario">Dados cadastrais</a></p>
+            <p class="{{ localizacao }}"><a class="{{ localizacao_ativo }}" routerLink="/clientes/update/localizacao">Localização</a></p>
+            <p class="{{ representantes }}"><a class="{{ representantes_ativo }}" routerLink="/clientes/criar/representantes">Representantes</a></p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+

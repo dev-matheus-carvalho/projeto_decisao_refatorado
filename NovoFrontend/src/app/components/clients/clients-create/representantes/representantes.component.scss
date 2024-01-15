@@ -1,0 +1,138 @@
+.global {
+  .cabecalho {
+    button {
+      color: var(--Grayscale-0, #FFF);
+      text-align: center;
+
+      /* Body/default-14px */
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      /* 142.857% */
+    }
+  }
+
+  .sem-representantes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 121px;
+  }
+
+  h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Grayscale-0, #FFF);
+
+    /* H4 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    /* 140% */
+  }
+
+
+
+
+
+
+
+  .tabela {
+    margin-left: 20px;
+    margin-right: 43px;
+    margin-top: 20px;
+
+    thead {
+      tr {
+        th {
+          border-bottom: 1px solid #6c757d !important;
+          background-color: #212529;
+
+          font-family: "Inter", sans-serif;
+          color: var(--Grayscale-200, #e4ebf2);
+          font-size: 14px;
+
+          font-weight: 600;
+          line-height: 20px;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        margin-top: 16px;
+
+        th,
+        td {
+          border-bottom: 1px solid #6c757d !important;
+          background-color: #212529;
+          color: white;
+
+          font-family: "Inter", sans-serif;
+          color: var(--Grayscale-200, #e4ebf2);
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+
+  .col-situacao,
+  .col-data {
+    padding-left: 20px;
+  }
+
+  .col-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .link {
+    // background-color: red;
+    width: 66px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .link-editar {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+
+  .link-excluir {
+    cursor: pointer;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .col-status {
+    display: flex;
+    align-items: center;
+  }
+
+  .ativo {
+    background-color: white;
+    color: #5dc02b;
+  }
+
+  .inativo {
+    background-color: white;
+    color: #ffb31a;
+  }
+
+  .negativo {
+    background-color: white;
+    color: #ee2d3d;
+  }
+}

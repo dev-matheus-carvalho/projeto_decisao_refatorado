@@ -1,0 +1,192 @@
+p, label {
+  color: white;
+}
+
+.menu-primeiro {
+  display: flex;
+  margin-top: 0;
+  margin: 20px 0 0 20px;
+  color: white;
+}
+
+.campos {
+  color: #6C757D;
+  margin-top: 7px;
+  display: flex;
+}
+
+.estrela {
+  margin-top: 5px;
+  margin-left: 4px;
+  margin-right: 2px;
+  height: 14px;
+  width: 12px;
+}
+
+.mensagem {
+  padding-top: 0px;
+}
+
+.hr-inicial {
+  color: beige;
+  margin-top: 20px;
+  margin-left: 8px;
+  width: 660px;
+  // width: 450px;
+}
+
+.hr-segundo {
+  color: beige;
+  margin-top: 20px;
+  margin-left: 8px;
+  // width: 660px;
+  width: 450px;
+}
+
+.menu-secundo {
+  margin-left: 12px;
+  margin-top: -45px
+}
+
+.menu-cadastro {
+  display: flex;
+  margin-left: 10px;
+}
+
+.linha {
+  color: white;
+  height: 766px;
+  margin-right: 0px;
+  margin-top: -1px;
+}
+
+.caixinha-um {
+  display: flex;
+}
+
+.opcoes-rotas {
+  margin-top: 20px;
+  margin-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #6C757D;
+}
+
+.selecionar {
+  border-left: solid 5px #0D6CF2;
+}
+
+.link {
+  margin-left: 35px;
+}
+
+.link-ativo {
+  margin-left: 30px;
+  color: #0D6CF2;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+.formulario-um {
+  margin-top: 0;
+  margin-left: 20px;
+  display: flex;
+}
+
+.formulario-dois, .formulario-tres {
+  display: flex;
+  margin-left: 20px;
+}
+
+.estrela-um {
+  margin-top: -2px;
+  margin-left: 5px;
+}
+
+.data {
+  margin-left: 20px;
+}
+
+.input-nome, .input-nome-fantasia, .input-municipio, .input-estado {
+  margin-right: 200px;
+  width: 95%;
+}
+
+.botoes {
+  margin-top: 430px;
+  // margin-top: 330px;
+  margin-left: 850px;
+  // margin-left: 810px;
+}
+
+.botoes-dois {
+  // margin-top: 430px;
+  margin-top: 330px;
+  // margin-left: 850px;
+  margin-left: 810px;
+}
+
+.cancelar {
+  margin-right: 8px;
+}
+
+.btn {
+  word-wrap: break-word;
+  white-space: nowrap;
+}
+
+.msgAviso {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: red;
+}
+
+.ativo {
+  background-color: #5DC02B;
+  color: white;
+}
+
+.inativo {
+  background-color: #FFB31A;
+  color: white;
+}
+
+.negativo {
+  background-color: #EE2D3D;
+  color: white;
+}
+
+ul {
+  background-color: #6C757D;
+}
+
+.fundo {
+  background-color: #6C757D;
+  color: white;
+}
+
+.fundo:hover {
+  background-color: #212529;
+  color: blue;
+  width: 90%;
+  margin-left: 8px;
+  border-radius: 8px;
+}
+
+.dropdown {
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 163px;
+  height: 36px;
+
+  color: white;
+}

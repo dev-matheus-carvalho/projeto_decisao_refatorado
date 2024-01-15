@@ -1,0 +1,124 @@
+<div class="superior">
+  <div class="barra-superior">
+
+    <p class="topo">
+      <a class="cliente">Cliente</a> <span class="barra"> / </span>
+      <span class="editar">Editar</span>
+    </p>
+
+    <div class="cabecalho">
+      <h5>Dados cadastrais</h5>
+
+      <div class="linha-um">
+        <hr />
+      </div>
+
+      <div class="campos-obrigatorios">
+        <img class="estrela" src="../../../../assets/estrela.png" />
+        <p class="texto-obrigatorio">Campos obrigatórios</p>
+      </div>
+
+    </div>
+
+
+    <div class="dropdown" *ngIf="showStatus">
+        <button class="{{ cor }} btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+          (click)="seta()">
+          Situação: {{ status }}
+          <span *ngIf="!upDown">
+            <img src="../../../../assets/down.png" alt="" />
+          </span>
+
+          <span *ngIf="upDown">
+            <img src="../../../../assets/up.png" alt="" />
+          </span>
+        </button>
+
+        <ul class="dropdown-menu">
+          <li>
+            <button class="fundo dropdown-item" type="button" (click)="statusAtivo()">
+              {{ ativo }}
+            </button>
+          </li>
+
+          <li>
+            <button class="fundo dropdown-item" type="button" (click)="statusInativo()">
+              {{ inativo }}
+            </button>
+          </li>
+
+          <li>
+            <button class="fundo dropdown-item" type="button" (click)="statusNegativo()">
+              {{ negativo }}
+            </button>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+<div class="global">
+  <div class="identificacao-e-data">
+    <div class="identificacao mb-3">
+      <div class="cabecalho">
+        <p>CNPJ/CPF</p>
+
+        <img src="../../../../../assets/estrela.png" />
+      </div>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="09.096.703/0001-30" />
+    </div>
+
+    <div class="data mb-3">
+      <div class="cabecalho">
+        <p>Data de cadastro</p>
+        <img src="../../../../../assets/estrela.png" />
+      </div>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="01/06/2023" disabled />
+    </div>
+  </div>
+
+  <div class="nome-identificacao">
+    <div class="nome mb-3">
+      <div class="cabecalho">
+        <p>Nome</p>
+        <img src="../../../../../assets/estrela.png" />
+      </div>
+      <input type="text" class="form-control" id="exampleFormControlInput1" />
+    </div>
+
+    <div class="nome-fantasia mb-3">
+      <div class="cabecalho">
+        <p>Nome fantasia</p>
+        <img src="../../../../../assets/estrela.png" />
+      </div>
+      <input type="text" class="form-control" id="exampleFormControlInput1" />
+    </div>
+  </div>
+
+  <div class="incricao-municipal-estadual" *ngIf="show">
+    <div class="municipio mb-3">
+      <div class="cabecalho">
+        <p>Incrição Municipal</p>
+        <img src="../../../../../assets/estrela.png" />
+      </div>
+      <input type="text" class="form-control" id="exampleFormControlInput1" />
+    </div>
+
+    <div class="estado mb-3">
+      <div class="cabecalho">
+        <p>Inscrição Estadual</p>
+        <img src="../../../../../assets/estrela.png" />
+      </div>
+      <input type="text" class="form-control" id="exampleFormControlInput1" />
+    </div>
+  </div>
+</div>
+
+<div class="botoes">
+  <button type="button" class="cancelar btn btn-light" routerLink="/clients">
+    Cancelar
+  </button>
+  <button type="button" class="salvar btn btn-primary" (click)="salvar()" routerLink="/create/localizacao">
+    Salvar Cliente
+  </button>
+</div>

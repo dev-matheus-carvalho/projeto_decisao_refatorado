@@ -1,0 +1,63 @@
+<div class="cabecalho">
+
+  <div class="imagem">
+    <img src="../../../assets/logoRegister.png" alt="simbolo decisao">
+  </div>
+
+  <div class="titulo">
+    <h3><strong>Seja bem vindo!</strong></h3>
+  </div>
+
+  <div class="subtitulo">
+    <p class="criar">Insira seus dados e acesse a plataforma</p>
+  </div>
+</div>
+
+<div class="formulario">
+
+  <!-- <div class="email">
+    <label for="validationServer02" class="form-label">E-mail *</label>
+    <input type="email" class="form-control {{ eValidoSenha }}" id="validationServer02" placeholder="Insira seu e-mail" required
+    [(ngModel)]="email">
+    <p class="msgErro">{{ msgEmail }}</p>
+
+  </div> -->
+
+  <div class="email">
+    <label for="validationServer02" class="form-label">Email *</label>
+    <input type="email" class="form-control {{ eValidoEmail }}" id="validationServer02" placeholder="Insira sua E-mail" required
+    [(ngModel)]="email">
+
+    <p class="msgErro">{{ msgEmail }}</p>
+  </div>
+
+  <div class="senha">
+    <label for="validationServer03" class="form-label">Senha *</label>
+    <input type="password" class="form-control {{ eValidoSenha }}" id="validationServer03" placeholder="Insira sua senha" required
+    [(ngModel)]="senha">
+
+    <p class="msgErro">{{ msgSenha }}</p>
+  </div>
+
+</div>
+
+<div class="checkLembrar form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+  [(ngModel)]="lembrar">
+  <label class="msgLembrar form-check-label" for="flexCheckDefault">
+    Lembre-me
+  </label>
+</div>
+
+<div class="cadastrar">
+  <button type="button" class="btn btn-primary"
+  (click)="login()">Entrar</button>
+</div>
+
+<div class="campos">
+  <p class="msg">* Campos obrigatórios</p>
+</div>
+
+<div class="login">
+  <p class="fazerLogin">Não possui cadastro? <a routerLink="/register">Faça seu cadastro aqui</a></p>
+</div>

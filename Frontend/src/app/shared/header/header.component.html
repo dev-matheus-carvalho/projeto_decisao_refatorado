@@ -1,0 +1,27 @@
+<div class="container-principal">
+
+  <div [ngClass]="posicaoImagem ? 'imagem' : 'imagemTela' ">
+    <a href="#"><img src="../../../assets/Branca.png" alt="imagem-decisao"></a>
+  </div>
+
+  <div class="opcoes" *ngIf="show">
+    <a class="editar" routerLink="/login" (click)="tirarTela()">Editar</a>
+    <a class="sair" (click)="msgSaida()">Sair do sistema</a>
+  </div>
+
+  <div class="perfil" (click)="mostrarTela()">
+
+    <p class="letras" (click)="mostrarTela()"><strong>
+      <a routerLink="#" (click)="mostrarTela()">{{ primeiraLetra }}</a>
+    </strong></p>
+
+    <p class="letras" (click)="mostrarTela()"><strong>
+      <a routerLink="#" (click)="mostrarTela()">{{ ultimaLetra }}</a>
+    </strong></p>
+
+  </div>
+
+
+  <!-- <p class="letras">{{ primeiraLetra }} {{ultimaLetra}}</p> -->
+</div>
+

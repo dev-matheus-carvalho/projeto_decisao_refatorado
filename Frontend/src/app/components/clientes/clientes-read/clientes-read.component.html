@@ -1,0 +1,62 @@
+<div class="principal">
+
+  <div class="sem-cliente" *ngIf="temClientes === false">
+    <img class="imagem-semcliente" src="../../../../assets/cliente.png" alt="sem-clientes">
+  </div>
+
+  <table class="table" *ngIf="temClientes === true">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Situação</th>
+        <th scope="data">Data do cadastro</th>
+        <th scope="vazio"></th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let clientes of cliente">
+      <tr>
+        <td scope="row">{{clientes.nome}}</td>
+
+        <td *ngIf="clientes.situacao === 'Ativo'">
+          <span class="badge rounded-pill text-bg-primary">
+            {{clientes.situacao}}
+          </span>
+        </td>
+
+        <td *ngIf="clientes.situacao === 'Inativo'">
+          <span class="badge rounded-pill text-bg-warning">
+            {{clientes.situacao}}
+          </span>
+        </td>
+
+        <td *ngIf="clientes.situacao === 'Negativo'">
+          <span class="badge rounded-pill text-bg-danger">
+            {{clientes.situacao}}
+          </span>
+        </td>
+
+
+        <td class="painel-opcoes">{{clientes.data_criacao}}</td>
+
+        <td class="painel-opcoes">
+          <div class="opcoes">
+
+            <div class="editar">
+              <a href="#"><img src="../../../../assets/editar.png" alt="editar"></a>
+            </div>
+
+            <div class="deletar">
+              <a href="#"><img src="../../../../assets/deletar.png" alt="editar"></a>
+            </div>
+
+          </div>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+
+</div>

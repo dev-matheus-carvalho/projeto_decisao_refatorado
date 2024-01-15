@@ -1,0 +1,49 @@
+<div class="tudo">
+  <div class="cabecalho">
+    <div class="header" *ngIf="show"><app-header></app-header></div>
+  </div>
+
+  <div class="painel">
+
+
+    <div class="menu" *ngIf="show"><app-menu></app-menu></div>
+
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+
+
+    <div class="sairSistema" *ngIf="showMsgSair">
+
+      <div class="sairCabecalho">
+        <h5 class="titulo">Sair do sistema?</h5>
+
+        <div class="fechar">
+          <a class="icone" (click)="fecharJanelaPrincipal()"><img src="./../assets/fechar.png" alt="fechar"></a>
+        </div>
+
+      </div>
+
+      <hr class="hr1">
+
+      <div>
+        <p class="msgSair">Você tem certeza que deseja sair do sistema?</p>
+      </div>
+
+      <hr class="hr1">
+
+      <div class="comandos">
+        <a class="cancelar" (click)="fecharJanelaPrincipal()">Cancelar</a>
+
+        <button
+        type="button" class="btn-sair btn btn-primary"
+        routerLink="login" (click)="fecharJanela()"
+        >Sim, sair</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer" *ngIf="show"><app-footer></app-footer></div>
+</div>
+

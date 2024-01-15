@@ -1,0 +1,29 @@
+footer {
+  display: flex;
+  width: calc(100% - 52px);
+  padding: 8px;
+  padding-right: 43px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  border-top: 1px solid var(--Grayscale-500, #2f3337);
+  background: #212529;
+  p {
+    margin: 0;
+    padding: 0;
+    color: #6c757d;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: 0.5px;
+    a {
+      color: #6c757d;
+      font-size: 12px;
+    }
+  }
+}

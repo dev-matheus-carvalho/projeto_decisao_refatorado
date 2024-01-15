@@ -1,0 +1,99 @@
+p, h3, hr, h6 {
+  color: white;
+}
+
+.global {
+  margin: 20px 0 0 20px;
+  background-color: rgb(148, 42, 42);
+  width: 100%;
+}
+
+.cabecalho {
+  display: flex;
+  width: 100%;
+  background-color: cornflowerblue;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.linha-principal {
+  background-color: rgb(75, 68, 60);
+  width: 700px;
+  margin-left: 8px;
+  margin-top: 5px;
+}
+
+.linha-um {
+  width: 700px;
+}
+
+.imagem-campo-obrigatorio {
+  // background-color: rgb(148, 148, 114);
+  display: flex;
+  width: 200px;
+  margin: 0 0 0 8px;
+  padding: 0 8px 0 0;
+}
+
+.estrela-um {
+  width: 12px;
+  height: 12px;
+  margin: 15px 8px 0 0;
+}
+
+.titulo-campo-obrigatorio {
+  white-space: nowrap;
+  margin-top: 8px;
+}
+
+// Sub-caceçalho
+
+.cabecalho-endereco {
+  background-color: rgb(38, 141, 141);
+  display: flex;
+}
+
+.subtitulo {
+  margin: 5px 5px 0 0;
+}
+
+.linha-subcabecalho {
+  background-color: rgb(255, 7, 7);
+  width: 86%;
+}
+
+.linha-dois {
+  border-width: 3px;
+}
+
+.imagem-down {
+  width: 16px;
+  height: 16px;
+  margin: 10px 0 0 0;
+  cursor: pointer;
+}
+
+.endereco {
+  background-color: aqua;
+  margin-left: 2px;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 0px;
+  background-color: black;
+  display: flex;
+}
+
+.row {
+  display: flex;
+}
+
+.card {
+  background-color: rgb(58, 134, 201);
+  display: flex;
+}
+
+.teste {
+  display: flex;
+}

@@ -1,0 +1,69 @@
+<div class="menu-primeiro">
+
+  <div class="menu-secundario">
+    <div class="cabecalho">
+      <p><a href="#">Cliente</a> / <span>Adicionar cliente</span></p>
+    </div>
+
+
+    <div class="container-cadastral">
+
+
+
+      <!--                 Status                   -->
+
+    <div class="dropdown" *ngIf="showStatus">
+      <button class="{{ cor }} btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+      (click)="seta()">
+      Situação: {{ status }}
+        <span *ngIf="!upDown">
+          <img src="../../../../assets/down.png" alt="">
+        </span>
+
+        <span *ngIf="upDown">
+          <img src="../../../../assets/up.png" alt="">
+        </span>
+      </button>
+
+      <ul class="dropdown-menu">
+
+        <li>
+          <button class="fundo dropdown-item" type="button"
+          (click)="statusAtivo()">
+          {{ ativo }}</button></li>
+
+        <li><button class="fundo dropdown-item" type="button"
+          (click)="statusInativo()">{{ inativo }}</button></li>
+
+        <li><button class="fundo dropdown-item" type="button"
+          (click)="statusNegativo()">{{ negativo }}</button></li>
+      </ul>
+    </div>
+
+    </div>
+
+    <router-outlet></router-outlet>
+
+    <!-- <div class="botoes">
+      <button type="button" class="cancelar btn btn-light">Cancelar</button>
+      <button type="button" class="slavar btn btn-primary">Salvar cliente</button>
+    </div> -->
+
+  </div>
+
+  <div class="menu-secundo" *ngIf="ocultarMenuCadastro">
+    <div class="menu-cadastro">
+      <div class="linha d-flex">
+        <div class="vr"></div>
+      </div>
+
+      <div class="opcoes-rotas">
+        <p class="{{ cadastro }}"><a class="{{ cadastro_ativo }}" routerLink="formulario" (click)="menuCadastroSelecionado()">Dados cadastrais</a></p>
+        <p class="{{ localizacao }}"><a class="{{ localizacao_ativo }}" routerLink="localizacao" (click)="menuLocalizacaoSelecionado()">Localização</a></p>
+        <p class="{{ representantes }}"><a class="{{ representantes_ativo }}" routerLink="representantes" (click)="menuRepresentantesSelecionado()">Representantes</a></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+

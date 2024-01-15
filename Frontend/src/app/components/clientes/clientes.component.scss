@@ -1,0 +1,56 @@
+.cabecalho {
+  margin: 18px 0 0 20px;
+  display: flex;
+  width: 1251px;
+  align-items: center;
+  gap: 99px;
+}
+
+.clientes {
+  color: white;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
+
+.botao {
+  margin-left: 880px;
+  margin-right: 20px;
+}
+
+.cancelar {
+  margin-top: 200px;
+}
+
+.cadastro {
+  color: white;
+  display: flex;
+  margin: 20px 0 0 20px;
+}
+
+.cliente {
+  color: white;
+}
+
+.add {
+  color: #6C757D;
+}
+
+h5, hr {
+  color: white;
+  display: flex;
+}
+
+hr {
+  margin-top: 15px;
+  padding: 0;
+  width: 1000px;
+}
+
+h5 {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  float: left;
+}

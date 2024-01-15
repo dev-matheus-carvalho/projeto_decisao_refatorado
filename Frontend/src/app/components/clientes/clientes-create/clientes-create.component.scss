@@ -1,0 +1,172 @@
+p {
+  color: white;
+  margin-bottom: 0;
+}
+
+.menu-primeiro {
+  // display: flex;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.cabecalho {
+  color: white;
+  margin: 20px 0 0 20px;
+}
+
+.container-cadastral {
+  display: flex;
+  margin-bottom: 0;
+}
+
+.titulo {
+  color: white;
+  margin-left: 20px;
+}
+
+// Mexa aqui para o tamanho da linha
+
+.hr-inicial {
+  color: beige;
+  margin-top: 20px;
+  margin-left: 8px;
+  width: 860px;
+  // width: 450px;
+}
+
+.hr-segundo {
+  color: beige;
+  margin-top: 20px;
+  margin-left: 8px;
+  // width: 860px;
+  width: 450px;
+}
+
+.campos {
+  color: #6C757D;
+  margin-top: 7px;
+  display: flex;
+}
+
+.estrela {
+  margin-top: 5px;
+  margin-left: 4px;
+  margin-right: 2px;
+  height: 14px;
+  width: 12px;
+}
+
+.mensagem {
+  padding-top: 0px;
+}
+
+.dropdown {
+  margin-left: 8px;
+  width: 163px;
+  height: 36px;
+
+  color: white;
+}
+
+.opcoes-status {
+  background-color: blue;
+  width: 183px;
+  height: 36px;
+  color: white;
+}
+
+.opcoes {
+  color: white;
+}
+
+.ativo {
+  background-color: #5DC02B;
+  color: white;
+}
+
+.inativo {
+  background-color: #FFB31A;
+  color: white;
+}
+
+.negativo {
+  background-color: #EE2D3D;
+  color: white;
+}
+
+ul {
+  background-color: #6C757D;
+}
+
+.fundo {
+  background-color: #6C757D;
+  color: white;
+}
+
+.fundo:hover {
+  background-color: #212529;
+  color: blue;
+  width: 90%;
+  margin-left: 8px;
+  border-radius: 8px;
+}
+
+.menu-cadastro {
+  display: flex;
+  margin-left: 10px;
+}
+
+.linha {
+  color: white;
+  height: 766px;
+  margin-right: 0px;
+}
+
+.opcoes-rotas {
+  margin-top: 20px;
+  margin-left: 0;
+}
+
+.selecionar {
+  border-left: solid 5px #0D6CF2;
+}
+
+.link {
+  margin-left: 45px;
+}
+
+.link-ativo {
+  margin-left: 40px;
+  color: #0D6CF2;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: #6C757D;
+}
+
+.botoes {
+  margin-top: 350px;
+  margin-left: 810px;
+}
+
+.cancelar {
+  margin-right: 8px;
+}
+
+.btn {
+  word-wrap: break-word;
+  white-space: nowrap;
+}
+
+.menu-secundo {
+  margin-left: 12px;
+}
+
+.menu-secundario {
+  margin-bottom: 0;
+}
+
+

@@ -1,0 +1,127 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+}
+
+.titulo {
+  color: white;
+  margin-left: 20px;
+  margin-top: 6px;
+  padding-top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
+
+.btn {
+  margin-right: 43px;
+  padding: 0px 10px;
+}
+
+.clients {
+  // background-color: burlywood;
+  height: calc(100vh - 170px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabela {
+  margin-left: 20px;
+  margin-right: 43px;
+  margin-top: 20px;
+  thead {
+    tr {
+      th {
+        border-bottom: 1px solid #6c757d !important;
+        background-color: #212529;
+
+        font-family: "Inter", sans-serif;
+        color: var(--Grayscale-200, #e4ebf2);
+        font-size: 14px;
+
+        font-weight: 600;
+        line-height: 20px;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      margin-top: 16px;
+
+      th,
+      td {
+        border-bottom: 1px solid #6c757d !important;
+        background-color: #212529;
+        color: white;
+
+        font-family: "Inter", sans-serif;
+        color: var(--Grayscale-200, #e4ebf2);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+.col-situacao,
+.col-data {
+  padding-left: 20px;
+}
+
+.col-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  // background-color: red;
+  width: 66px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link-editar {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.link-excluir {
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.col-status {
+  display: flex;
+  align-items: center;
+}
+
+.ativo {
+  background-color: white;
+  color: #5dc02b;
+}
+
+.inativo {
+  background-color: white;
+  color: #ffb31a;
+}
+
+.negativo {
+  background-color: white;
+  color: #ee2d3d;
+}
