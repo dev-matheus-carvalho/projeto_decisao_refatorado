@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientsCreateService } from 'src/app/shared/services/clients/clients-create/clients-create.service';
+import { ClientsGetByIdService } from 'src/app/shared/services/clients/clients-get-by-id/clients-get-by-id.service';
+import { ClientsUpdateService } from 'src/app/shared/services/clients/clients-update/clients-update.service';
 
 @Component({
   selector: 'app-atualizacao-formulario-clientes',
@@ -9,11 +11,6 @@ import { ClientsCreateService } from 'src/app/shared/services/clients/clients-cr
   styleUrls: ['./atualizacao-formulario-clientes.component.scss'],
 })
 export class AtualizacaoFormularioClientesComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private clientsCreateService: ClientsCreateService
-  ) {}
-
   public show: boolean = true;
   public showStatus: boolean = true;
   public cor: string = 'ativo';
@@ -30,17 +27,39 @@ export class AtualizacaoFormularioClientesComponent implements OnInit {
 
   public form = new FormGroup({
     identificacao: new FormControl<string | null>(null),
-    nome: new FormControl<string | null>(null),
+    nome: new FormControl<string | null | undefined>(''),
     nomeMaeOuFantasia: new FormControl<string | null>(null),
+    inscricaoMunicipal: new FormControl<string | null>(null),
+    inscricaoEstadual: new FormControl<string | null>(null),
   });
 
   private nome: boolean = false;
   private identificacao: boolean = false;
   private nomeMaeOuFantasia: boolean = false;
 
+  public cnpjOuCpf: string = '';
+  public dataCadastro?: Date | string;
+  public inputNome?: string = '';
+  public inputNomeFantasia?: string = '';
+  public inputNomeDaMae?: string = '';
+  public inputInscricaoMunicipal?: string = '';
+  public inputInscricaoEstadual?: string = '';
+  public inputNomeFantasiaOuMae: string = '';
+
+  public nomeFantasiaOuMae: string = 'Nome fantasia';
+
   ngOnInit(): void {
     // this.router.navigate(['create/formulario']);
+    const idCliente = localStorage.getItem('idCliente')!;
+    this.buscarCliente(String(idCliente));
   }
+
+  constructor(
+    private router: Router,
+    private clientsCreateService: ClientsCreateService,
+    private clientsGetByIdService: ClientsGetByIdService,
+    private clientsUpdateService: ClientsUpdateService
+  ) {}
 
   seta() {
     this.upDown = !this.upDown;
@@ -64,37 +83,86 @@ export class AtualizacaoFormularioClientesComponent implements OnInit {
     this.cor = 'negativo';
   }
 
+  private async buscarCliente(idCliente: string) {
+    try {
+      const cliente = await this.clientsGetByIdService.getClientsById(
+        idCliente
+      );
+
+      // console.log(cliente);
+
+      // this.dataCadastro = cliente.cliente.createdAt;
+      const data = new Date(cliente.cliente.createdAt);
+      this.dataCadastro = this.formatarData(data);
+
+      if (
+        cliente.cliente.nome_fantasia === '' ||
+        cliente.cliente.nome_fantasia === null ||
+        cliente.cliente.nome_fantasia === undefined
+      ) {
+        this.nomeFantasiaOuMae = 'Nome da mãe';
+        this.show = false;
+
+        this.cnpjOuCpf = cliente.cliente.identificacao!;
+        this.inputNome = cliente.cliente.nome!;
+        this.inputNomeFantasiaOuMae = cliente.cliente.nome_mae!;
+      } else {
+        this.nomeFantasiaOuMae = 'Nome fantasia';
+        this.show = true;
+
+        this.cnpjOuCpf = cliente.cliente.identificacao!;
+        this.inputNome = cliente.cliente.nome!;
+        this.inputNomeFantasiaOuMae = cliente.cliente.nome_fantasia!;
+        this.inputInscricaoMunicipal = cliente.cliente.inscricao_municipal;
+        this.inputInscricaoEstadual = cliente.cliente.inscricao_estadual;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   public async salvar() {
     try {
-      console.log(this.form.controls.identificacao.value?.length);
-      const idUsuario = localStorage.getItem('idUsuario')!;
+      // console.log(this.form.controls.identificacao.value?.length);
+      // const idUsuario = localStorage.getItem('idUsuario')!;
+      // if (this.form.controls.identificacao.value!.length === 14) {
+      //   console.log('Cadastra CPF');
+      //   await this.clientsCreateService.postClient(
+      //     this.form.controls.nome.value!,
+      //     this.form.controls.identificacao.value!,
+      //     '',
+      //     this.form.controls.nomeMaeOuFantasia.value!,
+      //     'Inativo',
+      //     idUsuario
+      //   );
+      //   this.router.navigate(['/clients']);
+      // } else if (this.form.controls.identificacao.value!.length === 18) {
+      //   console.log('Cadastra CNPJ');
+      //   await this.clientsCreateService.postClient(
+      //     this.form.controls.nome.value!,
+      //     this.form.controls.identificacao.value!,
+      //     this.form.controls.nomeMaeOuFantasia.value!,
+      //     '',
+      //     'Inativo',
+      //     idUsuario
+      //   );
+      //   this.router.navigate(['/clients']);
+      // }
 
-      if (this.form.controls.identificacao.value!.length === 14) {
-        console.log('Cadastra CPF');
+      const idCliente = localStorage.getItem('idCliente')!;
 
-        await this.clientsCreateService.postClient(
-          this.form.controls.nome.value!,
-          this.form.controls.identificacao.value!,
-          '',
-          this.form.controls.nomeMaeOuFantasia.value!,
-          'Inativo',
-          idUsuario
-        );
+      await this.clientsUpdateService.updateClient(
+        idCliente,
+        this.inputNome!,
+        this.inputNome!,
+        '',
+        this.inputInscricaoMunicipal!,
+        this.inputInscricaoEstadual!,
+        this.status,
+        String(localStorage.getItem('idUsuario'))
+      );
 
-        this.router.navigate(['/clients']);
-      } else if (this.form.controls.identificacao.value!.length === 18) {
-        console.log('Cadastra CNPJ');
-
-        await this.clientsCreateService.postClient(
-          this.form.controls.nome.value!,
-          this.form.controls.identificacao.value!,
-          this.form.controls.nomeMaeOuFantasia.value!,
-          '',
-          'Inativo',
-          idUsuario
-        );
-        this.router.navigate(['/clients']);
-      }
+      console.log('Foi')
     } catch (error) {
       console.log(error);
     }
@@ -163,5 +231,13 @@ export class AtualizacaoFormularioClientesComponent implements OnInit {
     } else {
       this.desabilitarBotaoSalvar = false;
     }
+  }
+
+  public formatarData(date: Date) {
+    return date.toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    });
   }
 }

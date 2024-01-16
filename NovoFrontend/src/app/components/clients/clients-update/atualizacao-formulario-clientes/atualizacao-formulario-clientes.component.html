@@ -18,10 +18,7 @@
         <p class="texto-obrigatorio">Campos obrigatórios</p>
       </div>
 
-    </div>
-
-
-    <div class="dropdown" *ngIf="showStatus">
+      <div class="dropdown">
         <button class="{{ cor }} btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
           (click)="seta()">
           Situação: {{ status }}
@@ -54,6 +51,8 @@
           </li>
         </ul>
       </div>
+    </div>
+
   </div>
 </div>
 
@@ -65,7 +64,7 @@
 
         <img src="../../../../../assets/estrela.png" />
       </div>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="09.096.703/0001-30" />
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{ cnpjOuCpf }}" disabled />
     </div>
 
     <div class="data mb-3">
@@ -73,7 +72,7 @@
         <p>Data de cadastro</p>
         <img src="../../../../../assets/estrela.png" />
       </div>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="01/06/2023" disabled />
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{ dataCadastro }}" disabled />
     </div>
   </div>
 
@@ -83,15 +82,17 @@
         <p>Nome</p>
         <img src="../../../../../assets/estrela.png" />
       </div>
-      <input type="text" class="form-control" id="exampleFormControlInput1" />
+      <input type="text" class="form-control" id="exampleFormControlInput1"
+      [(ngModel)]="inputNome" />
     </div>
 
     <div class="nome-fantasia mb-3">
       <div class="cabecalho">
-        <p>Nome fantasia</p>
+        <p>{{ nomeFantasiaOuMae }}</p>
         <img src="../../../../../assets/estrela.png" />
       </div>
-      <input type="text" class="form-control" id="exampleFormControlInput1" />
+      <input type="text" class="form-control" id="exampleFormControlInput1"
+      [(ngModel)]="inputNomeFantasiaOuMae" />
     </div>
   </div>
 
@@ -101,7 +102,8 @@
         <p>Incrição Municipal</p>
         <img src="../../../../../assets/estrela.png" />
       </div>
-      <input type="text" class="form-control" id="exampleFormControlInput1" />
+      <input type="text" class="form-control" id="exampleFormControlInput1"
+      [(ngModel)]="inputInscricaoMunicipal" />
     </div>
 
     <div class="estado mb-3">
@@ -109,7 +111,8 @@
         <p>Inscrição Estadual</p>
         <img src="../../../../../assets/estrela.png" />
       </div>
-      <input type="text" class="form-control" id="exampleFormControlInput1" />
+      <input type="text" class="form-control" id="exampleFormControlInput1"
+      [(ngModel)]="inputInscricaoEstadual" />
     </div>
   </div>
 </div>
@@ -118,7 +121,7 @@
   <button type="button" class="cancelar btn btn-light" routerLink="/clients">
     Cancelar
   </button>
-  <button type="button" class="salvar btn btn-primary" (click)="salvar()" routerLink="/create/localizacao">
+  <button type="button" class="salvar btn btn-primary" (click)="salvar()">
     Salvar Cliente
   </button>
 </div>

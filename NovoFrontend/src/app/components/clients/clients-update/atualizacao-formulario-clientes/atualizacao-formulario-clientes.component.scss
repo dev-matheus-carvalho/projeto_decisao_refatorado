@@ -7,6 +7,7 @@
 
   .barra-superior {
     // background-color: #5dc02b;
+    margin-left: -16px;
     width: 100%;
   }
 
@@ -44,7 +45,7 @@
 
     .linha-um {
       width: 100%;
-      margin-left: 8px;
+      margin-left: 18px;
 
       hr {
         color: #fffefe;
@@ -79,7 +80,6 @@
     }
 
     .dropdown {
-      margin-right: 20px;
       white-space: nowrap;
     }
   }
@@ -384,4 +384,36 @@
   .salvar {
     margin-right: 1px;
   }
+}
+
+.ativo {
+  background-color: #5dc02b;
+  color: white;
+}
+
+.inativo {
+  background-color: #ffb31a;
+  color: white;
+}
+
+.negativo {
+  background-color: #ee2d3d;
+  color: white;
+}
+
+.botoes {
+  // background-color: #5dc02b;
+  width: 78%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+
+  .cancelar {
+    margin-right: 20px;
+  }
+
+  .salvar {
+    margin-right: 1px;
+  }
+
 }

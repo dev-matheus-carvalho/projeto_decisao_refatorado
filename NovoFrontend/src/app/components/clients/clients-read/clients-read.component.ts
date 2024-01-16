@@ -66,4 +66,8 @@ export class ClientsReadComponent implements OnInit, OnDestroy {
   cadastrar() {
     localStorage.setItem('page', 'create/formulario');
   }
+
+  public armazenaIdCliente(idCliente: string | unknown) {
+    localStorage.setItem('idCliente', String(idCliente));
+  }
 }
