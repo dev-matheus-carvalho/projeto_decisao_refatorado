@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { RequestExtends } from '../interfaces/RequestInterface';
 import { CustomError } from '../error/CustomError';
 import {
@@ -30,6 +30,16 @@ export async function listarEnderecos(
     return response.status(200).json(endereco);
   } catch (error) {
     CustomError(response, 'Erro Interno: Erro ao listar endereços', 500);
+  }
+}
+
+export async function listarEnderecoById(request: Request, response: Response) {
+  try {
+    const { id } = request.params;
+
+    return response.status(200).json(await buscarEndereco(id));
+  } catch (error) {
+    CustomError(response, 'Erro Interno: Erro ao listar endereço', 500);
   }
 }
 

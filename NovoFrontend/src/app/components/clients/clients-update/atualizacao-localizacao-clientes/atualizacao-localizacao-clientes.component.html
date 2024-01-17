@@ -111,7 +111,7 @@
 
                 </div>
                 <input type="text" class="input-invalido form-control" id="exampleInputEmail1"
-                  aria-describedby="emailHelp">
+                  aria-describedby="emailHelp" [(ngModel)]="inputCep">
                 <p class="cep-invalido">Insira um CEP válido</p>
               </div>
 
@@ -129,7 +129,7 @@
 
                 </div>
                 <input type="text" class="input-invalido form-control" id="exampleInputEmail1"
-                  aria-describedby="emailHelp">
+                  aria-describedby="emailHelp" [(ngModel)]="inputLogradouro">
                 <p class="logradouro-invalido">Simple text</p>
               </div>
 
@@ -150,8 +150,9 @@
                   </div>
 
                 </div>
+
                 <input type="text" class="input-invalido form-control" id="exampleInputEmail1"
-                  aria-describedby="emailHelp">
+                  aria-describedby="emailHelp" [(ngModel)]="inputNumero">
                 <p class="numero-invalido">Insira um número</p>
               </div>
 
@@ -168,7 +169,8 @@
                   </div>
 
                 </div>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  [(ngModel)]="inputComplemento">
               </div>
 
             </div>
@@ -189,7 +191,7 @@
 
                 </div>
                 <input type="text" class="input-invalido form-control" id="exampleInputEmail1"
-                  aria-describedby="emailHelp">
+                  aria-describedby="emailHelp" [(ngModel)]="inputBairro">
                 <p class="bairro-invalido">Insira um bairro</p>
               </div>
 
@@ -207,7 +209,7 @@
 
                 </div>
                 <input type="text" class="input-invalido form-control" id="exampleInputEmail1"
-                  aria-describedby="emailHelp">
+                  aria-describedby="emailHelp" [(ngModel)]="inputCidade">
                 <p class="cidade-invalido">Insira uma Cidade</p>
               </div>
 
@@ -226,16 +228,28 @@
 
                 </div>
                 <input type="text" class="input-invalido form-control" id="exampleInputEmail1"
-                  aria-describedby="emailHelp">
+                  aria-describedby="emailHelp" [(ngModel)]="inputEstado">
                 <p class="estado-invalido">Insira um Estado</p>
               </div>
 
+            </div>
+
+
+
+
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [(ngModel)]="enderecoPrincipal">
+              <label class="form-check-label" for="flexCheckDefault">
+                Endereço principal
+              </label>
             </div>
           </div>
 
           <div class="acoes-novo-endereco">
             <button type="button" class="cancel-operation btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="save-operation btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+            <button type="button" class="save-operation btn btn-primary" data-bs-dismiss="modal"
+              (click)="criarEndereco()">Salvar</button>
           </div>
         </div>
 
@@ -271,21 +285,24 @@
     <div class="itens-endereco">
       <a data-bs-toggle="modal" data-bs-target="#cadastrar-endereco">+ Adicionar endereço</a>
 
-      <div class="enderecos-cliente">
-        <div class="card" style="width: 18rem;">
+      <div class="enderecos-cliente" *ngIf="existeEndereco">
+        <div class="card" style="width: 18rem;" *ngFor="let i of listaDeEnderecos">
           <div class="textos-enderecos card-body">
             <p class="card-text">
-              Rua L9, Qd53, Lt24, Casa Prata, Centro
+              <!-- Rua L9, Qd53, Lt24, Casa Prata, Centro -->
+              {{ i.logradouro }}, {{ i.complemento }} {{ i.numero }}, {{ i.bairro }}
             </p>
             <p>
-              Goiânia - GO
+              <!-- Goiânia - GO -->
+              {{ i.cidade }} - {{ i.estado }}
             </p>
 
             <p>
-              CEP: 74950-100
+              <!-- CEP: 74950-100 -->
+              CEP: {{ i.cep }}
             </p>
 
-            <p class="p-is-principal">
+            <p class="p-is-principal" *ngIf="i.is_principal === true">
               <span class="is-principal badge text-bg">Endereço principal</span>
             </p>
           </div>
@@ -293,7 +310,7 @@
             <li class="list-group-item">
               <div>
 
-                <a class="editar" data-bs-toggle="modal" data-bs-target="#cadastrar-endereco">
+                <a class="editar" data-bs-toggle="modal" data-bs-target="#cadastrar-endereco" >
                   <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_83_42091)">
                       <path
@@ -331,7 +348,7 @@
 
         </div>
 
-        <div class="card" style="width: 18rem;">
+        <!-- <div class="card" style="width: 18rem;">
           <div class="textos-enderecos card-body">
             <p class="card-text">
               Rua L9, Qd53, Lt24, Casa Prata, Centro
@@ -384,7 +401,9 @@
               </div>
             </li>
           </ul>
-        </div>
+        </div> -->
+
+
       </div>
     </div>
 
@@ -628,6 +647,7 @@
 
     <div class="botoes-operacao-voltar-prosseguir">
       <button type="button" class="voltar btn btn" routerLink="/clients">Cancelar</button>
-      <button type="button" class="prosseguir btn btn" routerLink="/create/representantes" (click)="salvar()">Salvar alterações</button>
+      <button type="button" class="prosseguir btn btn" routerLink="/create/representantes" (click)="salvar()">Salvar
+        alterações</button>
     </div>
   </div>
