@@ -35,7 +35,7 @@ export class ClientsUpdateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      this.router.navigate(['/update/atualizar-formulario/'])
+      this.router.navigate([String(localStorage.getItem('page')!)])
   }
 
   private nome: boolean = false;

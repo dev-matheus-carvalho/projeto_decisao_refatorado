@@ -69,5 +69,6 @@ export class ClientsReadComponent implements OnInit, OnDestroy {
 
   public armazenaIdCliente(idCliente: string | unknown) {
     localStorage.setItem('idCliente', String(idCliente));
+    localStorage.setItem('page', '/update/atualizar-formulario')
   }
 }

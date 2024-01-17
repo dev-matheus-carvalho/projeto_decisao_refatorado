@@ -123,46 +123,41 @@ export class AtualizacaoFormularioClientesComponent implements OnInit {
 
   public async salvar() {
     try {
-      // console.log(this.form.controls.identificacao.value?.length);
-      // const idUsuario = localStorage.getItem('idUsuario')!;
-      // if (this.form.controls.identificacao.value!.length === 14) {
-      //   console.log('Cadastra CPF');
-      //   await this.clientsCreateService.postClient(
-      //     this.form.controls.nome.value!,
-      //     this.form.controls.identificacao.value!,
-      //     '',
-      //     this.form.controls.nomeMaeOuFantasia.value!,
-      //     'Inativo',
-      //     idUsuario
-      //   );
-      //   this.router.navigate(['/clients']);
-      // } else if (this.form.controls.identificacao.value!.length === 18) {
-      //   console.log('Cadastra CNPJ');
-      //   await this.clientsCreateService.postClient(
-      //     this.form.controls.nome.value!,
-      //     this.form.controls.identificacao.value!,
-      //     this.form.controls.nomeMaeOuFantasia.value!,
-      //     '',
-      //     'Inativo',
-      //     idUsuario
-      //   );
-      //   this.router.navigate(['/clients']);
-      // }
-
       const idCliente = localStorage.getItem('idCliente')!;
 
-      await this.clientsUpdateService.updateClient(
-        idCliente,
-        this.inputNome!,
-        this.inputNome!,
-        '',
-        this.inputInscricaoMunicipal!,
-        this.inputInscricaoEstadual!,
-        this.status,
-        String(localStorage.getItem('idUsuario'))
-      );
+      if (this.nomeFantasiaOuMae === 'Nome da mãe') {
+        // cadastro cpf
 
-      console.log('Foi')
+        await this.clientsUpdateService.updateClient(
+          idCliente,
+          this.inputNome!,
+          '',
+          this.inputNomeFantasiaOuMae!,
+          '',
+          '',
+          this.status,
+          String(localStorage.getItem('idUsuario'))
+        );
+
+        localStorage.setItem('page', '/update/atualizar-localizacao');
+
+        // localStorage.setItem('page', '/atualizar-formulario');
+      } else {
+        // cadastro cnpj
+
+        await this.clientsUpdateService.updateClient(
+          idCliente,
+          this.inputNome!,
+          this.inputNomeFantasiaOuMae!,
+          '',
+          this.inputInscricaoMunicipal!,
+          this.inputInscricaoEstadual!,
+          this.status,
+          String(localStorage.getItem('idUsuario'))
+        );
+
+        localStorage.setItem('page', '/update/atualizar-localizacao');
+      }
     } catch (error) {
       console.log(error);
     }
