@@ -35,6 +35,15 @@ export async function listarTelefones(
   }
 }
 
+export async function buscarUmTelefone(request: Request, response: Response) {
+  try {
+    const { id } = request.params;
+    return response.status(200).json(await buscarTelefone(id));
+  } catch (error) {
+    CustomError(response, 'Erro Interno: Erro ao busar telefone', 500);
+  }
+}
+
 export async function criarTelefone(request: Request, response: Response) {
   try {
     const { numero, is_principal, idCliente } = request.body;
@@ -56,7 +65,7 @@ export async function criarTelefone(request: Request, response: Response) {
 
     if (existe_telefones === null) {
       // Passo 3º: O telefone a ser cadastrado, será o principal?
-      if (is_principal === 'true') {
+      if (is_principal === true) {
         // Passo 2.1º: Busque o telefone principal
         const cliente_principal = await listarTelefonesDeUmCliente(idCliente);
 
