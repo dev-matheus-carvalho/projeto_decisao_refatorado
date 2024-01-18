@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import {
   atualizarEmail,
+  buscarEmailDeUmCliente,
   criarEmail,
   exluirEmail,
   listarEmails,
@@ -9,6 +10,7 @@ import { EmailMiddleware } from '../middlewares/EmailMiddleware';
 
 const router = Router();
 
+router.get('/buscaremail/:id', buscarEmailDeUmCliente);
 router.get('/:id', listarEmails);
 router.post('/', EmailMiddleware, criarEmail);
 router.put('/:id', EmailMiddleware, atualizarEmail);

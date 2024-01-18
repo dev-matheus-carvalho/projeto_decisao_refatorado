@@ -9,7 +9,11 @@ import { ClientsCreateEnderecosService } from 'src/app/shared/services/clients/c
 import { ClientsDeleteEnderecosService } from 'src/app/shared/services/clients/clients-delete-enderecos/clients-delete-enderecos.service';
 import { ClientsGetEnderecosService } from 'src/app/shared/services/clients/clients-get-enderecos/clients-get-enderecos.service';
 import { ClientsUpdateEnderecosService } from 'src/app/shared/services/clients/clients-update-enderecos/clients-update-enderecos.service';
+import { ClientsCreateEmailService } from 'src/app/shared/services/clients/email/clients-create-email/clients-create-email.service';
+import { ClientsDeleteEmailService } from 'src/app/shared/services/clients/email/clients-delete-email/clients-delete-email.service';
 import { ClientsGetAllEmailsService } from 'src/app/shared/services/clients/email/clients-get-all-emails/clients-get-all-emails.service';
+import { ClientsGetOneEmailService } from 'src/app/shared/services/clients/email/clients-get-one-email/clients-get-one-email.service';
+import { ClientsUpdateEmailService } from 'src/app/shared/services/clients/email/clients-update-email/clients-update-email.service';
 import { ClientsCreateTelefonesService } from 'src/app/shared/services/clients/telefone/clients-create-telefones/clients-create-telefones.service';
 import { ClientsDeleteTelefoneService } from 'src/app/shared/services/clients/telefone/clients-delete-telefone/clients-delete-telefone.service';
 import { ClientsGetAllTelefonesService } from 'src/app/shared/services/clients/telefone/clients-get-all-telefones/clients-get-all-telefones.service';
@@ -42,13 +46,17 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   public inputEstado: string = '';
 
   public inputNumeroTelefone: string = '';
+  public inputEmail: string = '';
 
   public enderecoPrincipal: boolean = false;
   public telefonePrincipal: boolean = true;
+  public emailPrincipal: boolean = true;
 
   public salvarTelefone: boolean = true;
+  public salvarEmail: boolean = true;
 
   public desabilitarCheckBoxTelefone: boolean = false;
+  public desabilitarCheckBoxEmail: boolean = false;
 
   constructor(
     private clientsGetEnderecosService: ClientsGetEnderecosService,
@@ -60,7 +68,11 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
     private clientsGetOneTelefoneService: ClientsGetOneTelefoneService,
     private clientsUpdateTelefoneService: ClientsUpdateTelefoneService,
     private clientsDeleteTelefoneService: ClientsDeleteTelefoneService,
-    private clientsGetAllEmailsService: ClientsGetAllEmailsService
+    private clientsGetAllEmailsService: ClientsGetAllEmailsService,
+    private clientsCreateEmailService: ClientsCreateEmailService,
+    private clientsGetOneEmailService: ClientsGetOneEmailService,
+    private clientsUpdateEmailService: ClientsUpdateEmailService,
+    private clientsDeleteEmailService: ClientsDeleteEmailService
   ) {}
 
   ngOnInit(): void {
@@ -234,7 +246,6 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
 
       this.inputNumeroTelefone = telefone.numero;
       this.telefonePrincipal = telefone.is_principal;
-
     } catch (error: any) {
       console.log(error);
     }
@@ -254,9 +265,8 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
 
       this.showTelefone();
       this.listarTelefones();
-
     } catch (error: any) {
-      console.log(error)
+      console.log(error);
     }
   }
 
@@ -265,7 +275,7 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
       await this.clientsDeleteTelefoneService.DeleteTelefone(idTelefone);
       await this.listarTelefones();
     } catch (error: any) {
-      console.log(error)
+      console.log(error);
     }
   }
 
@@ -293,26 +303,113 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
     this.showAddTelefone = false;
   }
 
-// ==================================== Email =====================================
+  // ==================================== Email =====================================
 
-public async listarEmail() {
-  const idCliente = localStorage.getItem('idCliente')!;
-  const email = await this.clientsGetAllEmailsService.GetEmails(idCliente);
+  public async listarEmail() {
+    const idCliente = localStorage.getItem('idCliente')!;
+    const email = await this.clientsGetAllEmailsService.GetEmails(idCliente);
 
-  console.log(email)
+    console.log(email);
 
-  if (typeof email === 'string') {
-    console.log('É string');
-    this.existeEmail = false;
-  } else {
-    console.log('É array');
-    this.existeEmail = true;
-    this.listaDeEmail = [...email];
+    if (typeof email === 'string') {
+      console.log('É string');
+      this.existeEmail = false;
+    } else {
+      console.log('É array');
+      this.existeEmail = true;
+      this.listaDeEmail = [...email];
+    }
   }
-}
 
+  public async criarEmail() {
+    try {
+      const idCliente = localStorage.getItem('idCliente')!;
 
+      if (this.listaDeEmail.length !== 0) {
+        await this.clientsCreateEmailService.CreateEmail(
+          this.inputEmail,
+          String(this.emailPrincipal),
+          idCliente
+        );
 
+        await this.listarEmail();
+      } else {
+        await this.clientsCreateEmailService.CreateEmail(
+          this.inputEmail,
+          String(this.emailPrincipal),
+          idCliente
+        );
+
+        await this.listarEmail();
+      }
+    } catch (error: any) {
+      console.log(error);
+    }
+  }
+
+  public async alterarEmail() {
+    try {
+      this.limparDadosEmail();
+      this.salvarEmail = false;
+      this.showAddEmail = true;
+
+      const idEmail = localStorage.getItem('idEmail')!;
+
+      const email = await this.clientsGetOneEmailService.GetOneEmail(idEmail);
+
+      this.inputEmail = email.email;
+      this.emailPrincipal = email.is_principal;
+    } catch (error: any) {
+      console.log(error);
+    }
+  }
+
+  public async updateEmail() {
+    try {
+      const idEmail = localStorage.getItem('idEmail')!;
+      const idCliente = localStorage.getItem('idCliente')!;
+
+      await this.clientsUpdateEmailService.UpdateEmail(
+        idEmail,
+        this.inputEmail,
+        String(this.emailPrincipal),
+        idCliente
+      );
+
+      this.showEmail();
+      this.listarEmail();
+    } catch (error: any) {
+      console.log(error);
+    }
+  }
+
+  public async deletarEmail(idEmail: string) {
+    try {
+      await this.clientsDeleteEmailService.DeleteEmail(idEmail);
+      await this.listarEmail()
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  public verificaSeEmailEstaVazio() {
+    if (this.listaDeEmail.length === 0) {
+      this.emailPrincipal = true;
+      this.desabilitarCheckBoxEmail = true;
+    } else {
+      this.emailPrincipal = false;
+      this.desabilitarCheckBoxEmail = false;
+    }
+  }
+
+  public pegarIdEmail(idEmail: string) {
+    localStorage.setItem('idEmail', idEmail);
+  }
+
+  public limparDadosEmail() {
+    this.inputEmail = '';
+    this.emailPrincipal = false;
+  }
 
   public showEmail() {
     this.showAddEmail = !this.showAddEmail;
@@ -321,6 +418,8 @@ public async listarEmail() {
   public cancelAddEmail() {
     this.showAddEmail = false;
   }
+
+  // ===============================================================================
 
   public salvar() {
     localStorage.setItem('page', 'create/representantes');

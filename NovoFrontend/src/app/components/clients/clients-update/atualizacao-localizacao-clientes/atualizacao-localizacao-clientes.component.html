@@ -752,6 +752,8 @@
       </div>
     </div>
 
+    <!-- ================================ Email ================================ -->
+
     <div class="email-global">
       <div class="email">
         <h6>E-mails</h6>
@@ -770,21 +772,24 @@
       </div>
 
       <div class="itens-email">
-        <div><a (click)="showEmail()">+Adicionar e-mail</a></div>
+        <div><a (click)="showEmail()" (click)="verificaSeEmailEstaVazio()" (click)="limparDadosEmail()">+Adicionar e-mail</a></div>
 
         <div class="caixa-add-email" *ngIf="showAddEmail">
           <div class="col-auto">
-            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
+            [(ngModel)]="inputEmail">
           </div>
 
           <div>
-            <button type="button" class="cancelar btn btn" (click)="cancelAddEmail()">Cancelar</button>
-          <button type="button" class="boatao-add-email btn btn-primary">Adicionar e-mail</button>
+            <button type="button" class="cancelar btn btn" (click)="cancelAddEmail()" (click)="limparDadosEmail()">Cancelar</button>
+          <button type="button" class="boatao-add-email btn btn-primary" *ngIf="salvarEmail" (click)="criarEmail()">Adicionar e-mail</button>
+          <button type="button" class="boatao-add-email btn btn-primary" *ngIf="!salvarEmail" (click)="updateEmail()">Atualizar e-mail</button>
           </div>
         </div>
 
         <div class="marcador form-check" *ngIf="showAddEmail">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+          [(ngModel)]="emailPrincipal">
           <label class="form-check-label" for="flexCheckDefault">
             E-mail principal
           </label>
@@ -792,15 +797,15 @@
 
         <div *ngIf="existeEmail">
           <div class="lista-emails">
-            <div class="caixa-dois">
-              <p>teste@decisaosistemas.com.br</p>
+            <div class="caixa-dois" *ngFor="let i of listaDeEmail">
+              <p>{{i.email}}</p>
 
-              <div class="is-telefone-principal">
+              <div class="is-telefone-principal" *ngIf="i.is_principal">
                 <span class="badge text-bg">Principal</span>
               </div>
 
               <div class="operacoes-dois">
-                <a class="editar-telefone">
+                <a class="editar-telefone" (click)="pegarIdEmail(i.idEmail)" (click)="alterarEmail()">
                   <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_47_211489)" filter="url(#filter0_d_47_211489)">
                       <path
@@ -826,7 +831,7 @@
                   </svg>
                 </a>
 
-                <a class="excluir-telefone">
+                <a class="excluir-telefone" (click)="deletarEmail(i.idEmail)">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_47_211491)">
                       <path

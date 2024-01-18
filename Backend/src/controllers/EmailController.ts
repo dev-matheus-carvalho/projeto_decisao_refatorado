@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { RequestExtends } from '../interfaces/RequestInterface';
 import { CustomError } from '../error/CustomError';
 
@@ -37,6 +37,18 @@ export async function listarEmails(
     return response.status(200).json(email);
   } catch (error) {
     CustomError(response, 'Erro Interno: Erro ao listar emails', 500);
+  }
+}
+
+export async function buscarEmailDeUmCliente(
+  request: Request,
+  response: Response,
+) {
+  try {
+    const { id } = request.params;
+    return response.status(200).json(await buscarEmail(id));
+  } catch (error) {
+    CustomError(response, 'Erro Interno: Erro ao buscar email', 500);
   }
 }
 
