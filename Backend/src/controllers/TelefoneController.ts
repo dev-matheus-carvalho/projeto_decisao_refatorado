@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { RequestExtends } from '../interfaces/RequestInterface';
 import { CustomError } from '../error/CustomError';
 
@@ -35,12 +35,12 @@ export async function listarTelefones(
   }
 }
 
-export async function criarTelefone(
-  request: RequestExtends,
-  response: Response,
-) {
+export async function criarTelefone(request: Request, response: Response) {
   try {
     const { numero, is_principal, idCliente } = request.body;
+
+    console.log(numero);
+
     // 1º Passo: verifique se existe o cliente
     const existe_cliente = await findClienteByID(idCliente);
 
@@ -60,23 +60,22 @@ export async function criarTelefone(
         // Passo 2.1º: Busque o telefone principal
         const cliente_principal = await listarTelefonesDeUmCliente(idCliente);
 
+        console.log('Passei aqui', cliente_principal);
+
         // Passo 2.2º: Desmarque o telefone principal para false
-        await updateDeTelefonePrincipal(
-          cliente_principal.numero,
-          cliente_principal.idTelefone,
-        );
+        desmarcaTelefonePrincipal(idCliente);
 
         // Passo 2.3º: Cadastre o novo telefone
         await createTelefone(numero, is_principal, idCliente);
         return response.status(200).json('Telefone cadastrado com sucesso');
+      } else {
+        await createTelefone(numero, is_principal, idCliente);
+        return response.status(200).send('Telefone cadastrado com sucesso');
       }
-      await createTelefone(numero, is_principal, idCliente);
-      return response.status(200).send('Telefone cadastrado com sucesso');
     } else {
       return response.status(400).json('Já existe esse telefone no sistema');
     }
   } catch (error) {
-    console.log(error);
     CustomError(response, 'Erro Interno: Erro ao cadastrar o Telefone', 500);
   }
 }

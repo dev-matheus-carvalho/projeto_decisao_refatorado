@@ -247,7 +247,7 @@
           </div>
 
           <div class="acoes-novo-endereco">
-            <button type="button" class="cancel-operation btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="cancel-operation btn btn-light" data-bs-dismiss="modal" (click)="limparDados()">Cancelar</button>
             <button type="button" class="save-operation btn btn-primary" data-bs-dismiss="modal"
               (click)="criarEndereco()">Salvar</button>
           </div>
@@ -515,7 +515,7 @@
     </div>
 
     <div class="itens-endereco">
-      <a data-bs-toggle="modal" data-bs-target="#cadastrar-endereco">+ Adicionar endereço</a>
+      <a data-bs-toggle="modal" data-bs-target="#cadastrar-endereco" (click)="limparDados()">+ Adicionar endereço</a>
 
       <div class="enderecos-cliente" *ngIf="existeEndereco">
         <div class="card" style="width: 18rem;" *ngFor="let i of listaDeEnderecos">

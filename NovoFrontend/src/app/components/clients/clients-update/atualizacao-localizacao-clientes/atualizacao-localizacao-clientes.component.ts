@@ -3,10 +3,12 @@ import {
   Enderecos,
   GetEnderecosInterface,
 } from 'src/app/shared/interfaces/enderecos/listarEnderecos/getEnderecosInterface';
+import { GetAllTelefones } from 'src/app/shared/interfaces/telefones/getAllTelefone/gelAllTelefonesInterface';
 import { ClientsCreateEnderecosService } from 'src/app/shared/services/clients/clients-create-enderecos/clients-create-enderecos.service';
 import { ClientsDeleteEnderecosService } from 'src/app/shared/services/clients/clients-delete-enderecos/clients-delete-enderecos.service';
 import { ClientsGetEnderecosService } from 'src/app/shared/services/clients/clients-get-enderecos/clients-get-enderecos.service';
 import { ClientsUpdateEnderecosService } from 'src/app/shared/services/clients/clients-update-enderecos/clients-update-enderecos.service';
+import { ClientsGetAllTelefonesService } from 'src/app/shared/services/clients/telefone/clients-get-all-telefones/clients-get-all-telefones.service';
 
 @Component({
   selector: 'app-atualizacao-localizacao-clientes',
@@ -15,11 +17,13 @@ import { ClientsUpdateEnderecosService } from 'src/app/shared/services/clients/c
 })
 export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   public existeEndereco: boolean = false;
+  public existeTelefone: boolean = false;
 
   public showAddTelefone: boolean = false;
   public showAddEmail: boolean = false;
 
   public listaDeEnderecos: Array<Enderecos> = [];
+  public listaDeTelefones: Array<GetAllTelefones> = [];
 
   public inputCep: string = '';
   public inputLogradouro: string = '';
@@ -36,11 +40,14 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
     private clientsCreateEnderecosService: ClientsCreateEnderecosService,
     private clientsUpdateEnderecosService: ClientsUpdateEnderecosService,
     private clientsDeleteEnderecosService: ClientsDeleteEnderecosService,
+    private clientsGetAllTelefonesService: ClientsGetAllTelefonesService
   ) {}
 
   ngOnInit(): void {
     this.listarEnderecos();
   }
+
+  // ================================== Endereços ==================================
 
   public pegarIdEndereco(idEndereco: string) {
     localStorage.setItem('idEndereco', idEndereco);
@@ -66,6 +73,8 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   }
 
   public async criarEndereco() {
+    this.limparDados();
+
     const novoEndereco =
       await this.clientsCreateEnderecosService.createEndereco(
         this.inputCep,
@@ -144,6 +153,28 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
     this.listarEnderecos();
   }
 
+  // =================================== Telefone ====================================
+
+  public async listarTelefones() {
+    const idCliente = localStorage.getItem('idCliente')!;
+    const telefones =
+      await this.clientsGetAllTelefonesService.GetTelefones(idCliente);
+
+    console.log(telefones);
+    if (typeof telefones === 'string') {
+      console.log('É string');
+      this.existeTelefone = false;
+    } else {
+      console.log('É array');
+      this.existeEndereco = true;
+      this.listaDeTelefones = [...telefones];
+    }
+  }
+
+
+
+
+
   public showTelefone() {
     this.showAddTelefone = !this.showAddTelefone;
   }
@@ -164,7 +195,7 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
     localStorage.setItem('page', 'create/representantes');
   }
 
-  private limparDados() {
+  public limparDados() {
     this.inputCep = '';
     this.inputLogradouro = '';
     this.inputNumero = '';
