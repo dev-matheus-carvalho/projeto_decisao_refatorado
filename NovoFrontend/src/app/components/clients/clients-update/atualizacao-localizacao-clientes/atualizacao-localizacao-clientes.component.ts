@@ -4,6 +4,7 @@ import {
   GetEnderecosInterface,
 } from 'src/app/shared/interfaces/enderecos/listarEnderecos/getEnderecosInterface';
 import { ClientsCreateEnderecosService } from 'src/app/shared/services/clients/clients-create-enderecos/clients-create-enderecos.service';
+import { ClientsDeleteEnderecosService } from 'src/app/shared/services/clients/clients-delete-enderecos/clients-delete-enderecos.service';
 import { ClientsGetEnderecosService } from 'src/app/shared/services/clients/clients-get-enderecos/clients-get-enderecos.service';
 import { ClientsUpdateEnderecosService } from 'src/app/shared/services/clients/clients-update-enderecos/clients-update-enderecos.service';
 
@@ -33,18 +34,24 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   constructor(
     private clientsGetEnderecosService: ClientsGetEnderecosService,
     private clientsCreateEnderecosService: ClientsCreateEnderecosService,
-    private clientsUpdateEnderecosService: ClientsUpdateEnderecosService
+    private clientsUpdateEnderecosService: ClientsUpdateEnderecosService,
+    private clientsDeleteEnderecosService: ClientsDeleteEnderecosService,
   ) {}
 
   ngOnInit(): void {
     this.listarEnderecos();
   }
 
+  public pegarIdEndereco(idEndereco: string) {
+    localStorage.setItem('idEndereco', idEndereco);
+  }
+
   public async listarEnderecos() {
     const idCliente = localStorage.getItem('idCliente')!;
-    const enderecos = await this.clientsGetEnderecosService.getEnderecoByIdCliente(
-      String(idCliente)
-    );
+    const enderecos =
+      await this.clientsGetEnderecosService.getEnderecoByIdCliente(
+        String(idCliente)
+      );
 
     console.log(enderecos);
     if (typeof enderecos === 'string') {
@@ -69,22 +76,73 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
         this.inputCidade,
         this.inputEstado,
         String(this.enderecoPrincipal),
-        String(localStorage.getItem('idCliente')!));
+        String(localStorage.getItem('idCliente')!)
+      );
 
     console.log(this.enderecoPrincipal);
+    this.limparDados();
     this.listarEnderecos();
 
     this.limparDados();
   }
 
   public async editarEndereco(id: string) {
-    // const enderecos = await this.clientsGetEnderecosService.getEnderecoByIdEndereco(id);
-    console.log(id);
+    try {
+      localStorage.setItem('idEndereco', id);
+      const endereco =
+        await this.clientsGetEnderecosService.getEnderecoByIdEndereco(
+          String(id)
+        );
+
+      this.inputCep = endereco.cep;
+      this.inputLogradouro = endereco.logradouro;
+      this.inputNumero = endereco.numero;
+      this.inputComplemento = endereco.complemento;
+      this.inputBairro = endereco.bairro;
+      this.inputCidade = endereco.cidade;
+      this.inputEstado = endereco.estado;
+      this.enderecoPrincipal = endereco.is_principal;
+
+      console.log(this.inputCep);
+    } catch (error: any) {
+      console.log(error);
+    }
   }
 
+  public async alterarEndereco() {
+    try {
+      const id = localStorage.getItem('idEndereco')!;
+      const idCliente = localStorage.getItem('idCliente')!;
 
+      await this.clientsUpdateEnderecosService.updateEnderecoById(
+        id,
+        this.inputCep,
+        this.inputLogradouro,
+        this.inputNumero,
+        this.inputComplemento,
+        this.inputBairro,
+        this.inputCidade,
+        this.inputEstado,
+        String(this.enderecoPrincipal),
+        String(idCliente)
+      );
 
+      localStorage.setItem('idEndereco', '');
 
+      this.listarEnderecos();
+    } catch (error: any) {
+      console.log(error);
+    }
+  }
+
+  public async excluirEndereco() {
+    const idEndereco = localStorage.getItem('idEndereco')!;
+
+    await this.clientsDeleteEnderecosService.deleteEndereco(idEndereco);
+
+    localStorage.setItem('idEndereco', '');
+    this.listarEnderecos();
+  }
 
   public showTelefone() {
     this.showAddTelefone = !this.showAddTelefone;
