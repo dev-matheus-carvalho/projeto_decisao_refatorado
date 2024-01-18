@@ -11,10 +11,10 @@ export class ClientsGetAllTelefonesService {
 
   constructor(private http: HttpClient) { }
 
-  public GetTelefones(id: string | number): Promise<Array<GetAllTelefones>> {
+  public GetTelefones(id: string | number): Promise<Array<GetAllTelefones> | string> {
     return new Promise((resolve, reject) => {
-      this.http.get<Array<GetAllTelefones>>(`${this.baseUrl}/${id}`).subscribe({
-        next: (value: Array<GetAllTelefones>) => resolve(value),
+      this.http.get<Array<GetAllTelefones> | string>(`${this.baseUrl}/${id}`).subscribe({
+        next: (value: Array<GetAllTelefones> | string) => resolve(value),
         error: (error) => reject(error),
       });
     });

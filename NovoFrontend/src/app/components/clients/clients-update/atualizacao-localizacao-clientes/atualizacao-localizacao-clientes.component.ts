@@ -45,6 +45,7 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarEnderecos();
+    this.listarTelefones();
   }
 
   // ================================== Endereços ==================================
@@ -62,14 +63,11 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
 
     console.log(enderecos);
     if (typeof enderecos === 'string') {
-      console.log('É string');
       this.existeEndereco = false;
     } else {
-      console.log('É array');
       this.existeEndereco = true;
       this.listaDeEnderecos = [...enderecos];
     }
-    // console.log(typeof a)
   }
 
   public async criarEndereco() {
@@ -166,7 +164,7 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
       this.existeTelefone = false;
     } else {
       console.log('É array');
-      this.existeEndereco = true;
+      this.existeTelefone = true;
       this.listaDeTelefones = [...telefones];
     }
   }
