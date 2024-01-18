@@ -9,8 +9,10 @@ import { ClientsDeleteEnderecosService } from 'src/app/shared/services/clients/c
 import { ClientsGetEnderecosService } from 'src/app/shared/services/clients/clients-get-enderecos/clients-get-enderecos.service';
 import { ClientsUpdateEnderecosService } from 'src/app/shared/services/clients/clients-update-enderecos/clients-update-enderecos.service';
 import { ClientsCreateTelefonesService } from 'src/app/shared/services/clients/telefone/clients-create-telefones/clients-create-telefones.service';
+import { ClientsDeleteTelefoneService } from 'src/app/shared/services/clients/telefone/clients-delete-telefone/clients-delete-telefone.service';
 import { ClientsGetAllTelefonesService } from 'src/app/shared/services/clients/telefone/clients-get-all-telefones/clients-get-all-telefones.service';
 import { ClientsGetOneTelefoneService } from 'src/app/shared/services/clients/telefone/clients-get-one-telefone/clients-get-one-telefone.service';
+import { ClientsUpdateTelefoneService } from 'src/app/shared/services/clients/telefone/clients-update-telefone/clients-update-telefone.service';
 
 @Component({
   selector: 'app-atualizacao-localizacao-clientes',
@@ -40,6 +42,8 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   public enderecoPrincipal: boolean = false;
   public telefonePrincipal: boolean = true;
 
+  public salvarTelefone: boolean = true;
+
   public desabilitarCheckBoxTelefone: boolean = false;
 
   constructor(
@@ -49,7 +53,9 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
     private clientsDeleteEnderecosService: ClientsDeleteEnderecosService,
     private clientsGetAllTelefonesService: ClientsGetAllTelefonesService,
     private clientsCreateTelefonesService: ClientsCreateTelefonesService,
-    private clientsGetOneTelefoneService: ClientsGetOneTelefoneService
+    private clientsGetOneTelefoneService: ClientsGetOneTelefoneService,
+    private clientsUpdateTelefoneService: ClientsUpdateTelefoneService,
+    private clientsDeleteTelefoneService: ClientsDeleteTelefoneService
   ) {}
 
   ngOnInit(): void {
@@ -179,7 +185,7 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   }
 
   public pegarIdTelefone(idTelefone: string) {
-    console.log(idTelefone);
+    localStorage.setItem('idTelefone', idTelefone);
   }
 
   public async criarTelefone() {
@@ -209,14 +215,49 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
 
   public async alterarTelefone() {
     try {
-
       this.limparDadosTelefone();
+      this.salvarTelefone = false;
+      this.showAddTelefone = true;
 
+      const idTelefone = localStorage.getItem('idTelefone')!;
       const idCliente = localStorage.getItem('idCliente')!;
-      // const telefone = await this.clientsGetOneTelefoneService.GetOneTelefone('');
 
-      // this.inputNumeroTelefone = telefone.numero;
+      const telefone = await this.clientsGetOneTelefoneService.GetOneTelefone(
+        idTelefone
+      );
 
+      this.inputNumeroTelefone = telefone.numero;
+      this.telefonePrincipal = telefone.is_principal;
+
+    } catch (error: any) {
+      console.log(error);
+    }
+  }
+
+  public async updateTelefone() {
+    try {
+      const idTelefone = localStorage.getItem('idTelefone')!;
+      const idCliente = localStorage.getItem('idCliente')!;
+
+      await this.clientsUpdateTelefoneService.UpdateTelefone(
+        idTelefone,
+        this.inputNumeroTelefone,
+        String(this.telefonePrincipal),
+        idCliente
+      );
+
+      this.showTelefone();
+      this.listarTelefones();
+
+    } catch (error: any) {
+      console.log(error)
+    }
+  }
+
+  public async deletarTelefone(idTelefone: string) {
+    try {
+      await this.clientsDeleteTelefoneService.DeleteTelefone(idTelefone);
+      await this.listarTelefones();
     } catch (error: any) {
       console.log(error)
     }
@@ -238,6 +279,7 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   }
 
   public showTelefone() {
+    this.salvarTelefone = true;
     this.showAddTelefone = !this.showAddTelefone;
   }
 

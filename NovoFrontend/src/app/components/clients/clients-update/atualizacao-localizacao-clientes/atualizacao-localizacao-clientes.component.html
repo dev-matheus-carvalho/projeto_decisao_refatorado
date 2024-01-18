@@ -670,8 +670,9 @@
             [(ngModel)]="inputNumeroTelefone">
           </div>
 
-          <button type="button" class="cancelar btn btn" (click)="cancelAddTelefone()">Cancelar</button>
-          <button type="button" class="boatao-add-telefone btn btn-primary" (click)="criarTelefone()">Adicionar telefone</button>
+          <button type="button" class="cancelar btn btn" (click)="limparDadosTelefone()" (click)="cancelAddTelefone()">Cancelar</button>
+          <button type="button" class="boatao-add-telefone btn btn-primary" *ngIf="salvarTelefone" (click)="criarTelefone()">Adicionar telefone</button>
+          <button type="button" class="boatao-add-telefone btn btn-primary" *ngIf="!salvarTelefone" (click)="updateTelefone()" >Alterar telefone</button>
         </div>
 
         <div class="marcador form-check" *ngIf="showAddTelefone">
@@ -696,7 +697,7 @@
               </div>
 
               <div class="operacoes-dois">
-                <a class="editar-telefone" (click)="pegarIdTelefone(i.idTelefone)">
+                <a class="editar-telefone" (click)="alterarTelefone()" (click)="pegarIdTelefone(i.idTelefone)" (click)="limparDadosTelefone()">
                   <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_47_211489)" filter="url(#filter0_d_47_211489)">
                       <path
@@ -722,7 +723,7 @@
                   </svg>
                 </a>
 
-                <a class="excluir-telefone">
+                <a class="excluir-telefone" (click)="deletarTelefone(i.idTelefone)">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_47_211491)">
                       <path

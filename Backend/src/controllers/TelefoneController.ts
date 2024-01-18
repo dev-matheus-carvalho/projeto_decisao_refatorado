@@ -104,20 +104,22 @@ export async function atualizarTelefone(
       return response.status(200).json('Telefone atualizado com sucesso');
     }
 
-    // 1º Passo: Procure o telefone passado
+    // // 1º Passo: Procure o telefone passado
     const endereco = await buscarTelefone(id);
 
     // 2º Passo: Se o telefone não existir, retorne uma mensagem avisando isso
     if (endereco === null)
       return response.status(400).json('Telefone não encontrado');
 
-    // 3º Passo: Verifica se o telefone é o principal
-    const telefone_principal = await listarTelefonesDeUmCliente(idCliente);
+    // // 3º Passo: Verifica se o telefone é o principal
+    const telefone_principal = await listarTelefonesDeUmCliente(idCliente); // retorna o telefone principal
     const telefonePassadoIsPrincipal = telefone_principal.idTelefone === id;
+
+    console.log(telefone_principal);
 
     // O telefone passado não é o principal
     if (telefonePassadoIsPrincipal === false) {
-      if (is_principal === 'false') {
+      if (is_principal === false) {
         await updateTelefone(id, numero, is_principal, idCliente);
         return response.status(200).json('Telefone atualizado com sucesso');
       } else {
