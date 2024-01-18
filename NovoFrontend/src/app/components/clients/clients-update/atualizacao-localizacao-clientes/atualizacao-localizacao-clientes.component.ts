@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetAllEmails } from 'src/app/shared/interfaces/email/getAllEmails';
 import {
   Enderecos,
   GetEnderecosInterface,
@@ -8,6 +9,7 @@ import { ClientsCreateEnderecosService } from 'src/app/shared/services/clients/c
 import { ClientsDeleteEnderecosService } from 'src/app/shared/services/clients/clients-delete-enderecos/clients-delete-enderecos.service';
 import { ClientsGetEnderecosService } from 'src/app/shared/services/clients/clients-get-enderecos/clients-get-enderecos.service';
 import { ClientsUpdateEnderecosService } from 'src/app/shared/services/clients/clients-update-enderecos/clients-update-enderecos.service';
+import { ClientsGetAllEmailsService } from 'src/app/shared/services/clients/email/clients-get-all-emails/clients-get-all-emails.service';
 import { ClientsCreateTelefonesService } from 'src/app/shared/services/clients/telefone/clients-create-telefones/clients-create-telefones.service';
 import { ClientsDeleteTelefoneService } from 'src/app/shared/services/clients/telefone/clients-delete-telefone/clients-delete-telefone.service';
 import { ClientsGetAllTelefonesService } from 'src/app/shared/services/clients/telefone/clients-get-all-telefones/clients-get-all-telefones.service';
@@ -22,12 +24,14 @@ import { ClientsUpdateTelefoneService } from 'src/app/shared/services/clients/te
 export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   public existeEndereco: boolean = false;
   public existeTelefone: boolean = false;
+  public existeEmail: boolean = false;
 
   public showAddTelefone: boolean = false;
   public showAddEmail: boolean = false;
 
   public listaDeEnderecos: Array<Enderecos> = [];
   public listaDeTelefones: Array<GetAllTelefones> = [];
+  public listaDeEmail: Array<GetAllEmails> = [];
 
   public inputCep: string = '';
   public inputLogradouro: string = '';
@@ -55,12 +59,14 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
     private clientsCreateTelefonesService: ClientsCreateTelefonesService,
     private clientsGetOneTelefoneService: ClientsGetOneTelefoneService,
     private clientsUpdateTelefoneService: ClientsUpdateTelefoneService,
-    private clientsDeleteTelefoneService: ClientsDeleteTelefoneService
+    private clientsDeleteTelefoneService: ClientsDeleteTelefoneService,
+    private clientsGetAllEmailsService: ClientsGetAllEmailsService
   ) {}
 
   ngOnInit(): void {
     this.listarEnderecos();
     this.listarTelefones();
+    this.listarEmail();
   }
 
   // ================================== Endereços ==================================
@@ -286,6 +292,27 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   public cancelAddTelefone() {
     this.showAddTelefone = false;
   }
+
+// ==================================== Email =====================================
+
+public async listarEmail() {
+  const idCliente = localStorage.getItem('idCliente')!;
+  const email = await this.clientsGetAllEmailsService.GetEmails(idCliente);
+
+  console.log(email)
+
+  if (typeof email === 'string') {
+    console.log('É string');
+    this.existeEmail = false;
+  } else {
+    console.log('É array');
+    this.existeEmail = true;
+    this.listaDeEmail = [...email];
+  }
+}
+
+
+
 
   public showEmail() {
     this.showAddEmail = !this.showAddEmail;

@@ -17,9 +17,7 @@ export async function buscarTelefonePorNumero(numero: string) {
   });
 }
 
-export async function listarTelefonesDeUmCliente(
-  idCliente: string,
-) {
+export async function listarTelefonesDeUmCliente(idCliente: string) {
   return await TelefoneModel.findOne({
     where: { idCliente, is_principal: true },
   });
