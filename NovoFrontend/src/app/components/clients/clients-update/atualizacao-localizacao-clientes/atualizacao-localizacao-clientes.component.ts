@@ -422,7 +422,7 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   // ===============================================================================
 
   public salvar() {
-    localStorage.setItem('page', 'update/atualizar-representantes');
+    localStorage.setItem('page', 'update/atualizar-representantes/listar-representantes/');
     // /update/atualizar-representantes
     // localStorage.setItem('page', 'create/representantes');
   }
