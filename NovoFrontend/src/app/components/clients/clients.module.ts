@@ -16,6 +16,10 @@ import { ClientsUpdateComponent } from './clients-update/clients-update.componen
 import { AtualizacaoFormularioClientesComponent } from './clients-update/atualizacao-formulario-clientes/atualizacao-formulario-clientes.component';
 import { AtualizacaoLocalizacaoClientesComponent } from './clients-update/atualizacao-localizacao-clientes/atualizacao-localizacao-clientes.component';
 import { AtualizacaoRepresentantesClientesComponent } from './clients-update/atualizacao-representantes-clientes/atualizacao-representantes-clientes.component';
+import { PainelRepresentantesComponent } from './clients-update/atualizacao-representantes-clientes/painel-representantes/painel-representantes/painel-representantes.component';
+import { CreateRepresentantesComponent } from './clients-update/atualizacao-representantes-clientes/painel-representantes/create-representantes/create-representantes.component';
+import { UpdateRepresentantesComponent } from './clients-update/atualizacao-representantes-clientes/painel-representantes/update-representantes/update-representantes.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ import { AtualizacaoRepresentantesClientesComponent } from './clients-update/atu
     ClientsUpdateComponent,
     AtualizacaoFormularioClientesComponent,
     AtualizacaoLocalizacaoClientesComponent,
-    AtualizacaoRepresentantesClientesComponent
+    AtualizacaoRepresentantesClientesComponent,
+    PainelRepresentantesComponent,
+    CreateRepresentantesComponent,
+    UpdateRepresentantesComponent
   ],
   imports: [
     CommonModule,
