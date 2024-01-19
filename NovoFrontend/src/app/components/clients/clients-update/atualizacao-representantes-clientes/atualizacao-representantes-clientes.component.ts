@@ -9,17 +9,10 @@ import { ClientsCreateService } from 'src/app/shared/services/clients/clients-cr
   styleUrls: ['./atualizacao-representantes-clientes.component.scss'],
 })
 export class AtualizacaoRepresentantesClientesComponent implements OnInit {
-  public showCabecalho: boolean = true;
-  public showCadastro: boolean = true;
-  public showLista: boolean = false;
 
-  public situacaoTeste: string = 'Ativo';
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.showCabecalho = true;
-  }
-
-  public cadastrar() {
-    this.showCabecalho = false;
+    this.router.navigate([localStorage.getItem('page')!]);
   }
 }
