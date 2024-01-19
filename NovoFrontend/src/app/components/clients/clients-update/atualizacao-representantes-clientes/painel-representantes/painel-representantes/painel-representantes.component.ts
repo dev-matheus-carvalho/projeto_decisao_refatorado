@@ -64,6 +64,12 @@ export class PainelRepresentantesComponent {
     localStorage.setItem('page', 'update/atualizar-representantes/criar-representate');
   }
 
+  public editar(idRepresentante: string) {
+    localStorage.setItem('idRepresentante', idRepresentante);
+    localStorage.setItem('page', 'update/atualizar-representantes/atualizar-representate');
+    this.router.navigate(['/update/atualizar-representantes/atualizar-representante/']);
+  }
+
   private formatDate(date: Date) {
     return date.toLocaleDateString('pt-BR', {
       day: '2-digit',
