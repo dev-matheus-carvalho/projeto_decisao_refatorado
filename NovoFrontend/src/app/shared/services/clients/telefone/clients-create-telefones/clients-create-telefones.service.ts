@@ -10,7 +10,7 @@ export class ClientsCreateTelefonesService {
 
   constructor(private http: HttpClient) { }
 
-  public CreateTelefones(numero: string, is_principal: boolean, idCliente: string): Promise<string> {
+  public CreateTelefones(numero: string, is_principal: boolean | string, idCliente: string): Promise<string> {
     return new Promise((resolve, reject) => {
       this.http.post<string>(this.baseUrl, { numero, is_principal, idCliente }).subscribe({
         next: (value: string) => resolve(value),

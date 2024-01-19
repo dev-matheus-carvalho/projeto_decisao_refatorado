@@ -104,7 +104,7 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
   }
 
   public async criarEndereco() {
-    this.limparDados();
+    // this.limparDados();
 
     const novoEndereco =
       await this.clientsCreateEnderecosService.createEndereco(
@@ -220,7 +220,7 @@ export class AtualizacaoLocalizacaoClientesComponent implements OnInit {
       } else {
         await this.clientsCreateTelefonesService.CreateTelefones(
           this.inputNumeroTelefone,
-          true,
+          "true",
           idCliente
         );
 

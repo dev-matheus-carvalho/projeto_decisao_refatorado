@@ -12,6 +12,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './shared/services/login/login.service';
+import { AuthGuardChild } from './guards/auth-guard-child.guard';
+import { AuthGuard } from './guards/auth-guard.guard';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { LoginService } from './shared/services/login/login.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [LoginService],
+  providers: [LoginService, AuthGuard, AuthGuardChild],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

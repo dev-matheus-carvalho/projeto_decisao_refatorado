@@ -14,6 +14,7 @@ import { AtualizacaoRepresentantesClientesComponent } from './clients-update/atu
 import { PainelRepresentantesComponent } from './clients-update/atualizacao-representantes-clientes/painel-representantes/painel-representantes/painel-representantes.component';
 import { CreateRepresentantesComponent } from './clients-update/atualizacao-representantes-clientes/painel-representantes/create-representantes/create-representantes.component';
 import { UpdateRepresentantesComponent } from './clients-update/atualizacao-representantes-clientes/painel-representantes/update-representantes/update-representantes.component';
+import { AuthGuardChild } from 'src/app/guards/auth-guard-child.guard';
 
 const clients: Routes = [
   { path: '', component: ClientsReadComponent },
@@ -40,7 +41,7 @@ const clients: Routes = [
         { path: 'criar-representante', component: CreateRepresentantesComponent },
         { path: 'atualizar-representante', component: UpdateRepresentantesComponent }
       ] },
-    ],
+    ], canActivateChild: [AuthGuardChild]
   },
 ];
 

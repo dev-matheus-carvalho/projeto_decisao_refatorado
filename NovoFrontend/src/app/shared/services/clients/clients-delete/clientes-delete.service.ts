@@ -11,14 +11,14 @@ export class ClientesDeleteService {
 
   constructor(private http: HttpClient) { }
 
-  public deleteClients(id: string): Promise<unknown> {
+  public deleteClients(id: string): Promise<string> {
     return new Promise((resolve, reject) => {
-      this.http.delete<unknown>(`${this.baseUrl}/${id}`, {
+      this.http.delete<string>(`${this.baseUrl}/${id}`, {
         headers: {
           Authorization: `Bearer ${this.token}`
         }
       }).subscribe({
-        next: (value: unknown) => resolve(value),
+        next: (value: string) => resolve(value),
         error: error => reject(error)
       });
     });

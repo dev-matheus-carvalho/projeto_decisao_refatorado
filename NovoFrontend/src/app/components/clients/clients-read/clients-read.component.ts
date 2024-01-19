@@ -51,8 +51,9 @@ export class ClientsReadComponent implements OnInit, OnDestroy {
   }
 
   public async deletarCliente(id?: string) {
-    await this.clientesDeleteService.deleteClients(id!);
-    await this.listarClientes()
+    console.log(id)
+    // await this.clientesDeleteService.deleteClients(id!);
+    // await this.listarClientes()
   }
 
   private formatDate(date: Date) {

@@ -130,7 +130,7 @@ export async function atualizarTelefone(
     }
 
     // 4º Passo: Nesse caso, o telefone é o principal
-    if (is_principal === 'true') {
+    if (is_principal === true) {
       await updateTelefone(id, numero, is_principal, idCliente);
       return response.status(200).json('Telefone atualizado com sucesso');
     } else {
