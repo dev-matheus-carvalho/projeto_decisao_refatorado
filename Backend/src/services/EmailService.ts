@@ -77,3 +77,7 @@ export async function updateMarcarPrincipal(email: string, idCliente: string) {
 export async function deleteEmail(idEmail: string) {
   return await EmailModel.destroy({ where: { idEmail } });
 }
+
+export async function deleteEmailCliente(idCliente: string) {
+  return await EmailModel.destroy({ where: { idCliente } });
+}

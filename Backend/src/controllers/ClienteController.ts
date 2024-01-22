@@ -13,6 +13,9 @@ import {
 import { usuarioLogado } from '../services/UsuariosService';
 import { CustomError } from '../error/CustomError';
 import { verificaClienteERepresentante } from '../services/RepresentanteService';
+import { deleteEmailCliente } from '../services/EmailService';
+import { deleteTelefoneCliente } from '../services/TelefoneService';
+import { deleteEnderecoCliente } from '../services/EnderecoService';
 
 export async function listarClientes(
   request: RequestExtends,
@@ -192,6 +195,9 @@ export async function deletarCliente(
 
     const temRepresentantes = await verificaClienteERepresentante(id);
     if (temRepresentantes.length === 0) {
+      await deleteEnderecoCliente(id);
+      await deleteEmailCliente(id);
+      await deleteTelefoneCliente(id);
       await deleteCliente(id);
       data = {
         usuario: usuario.nome,

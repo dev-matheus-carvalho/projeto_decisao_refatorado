@@ -33,27 +33,31 @@ export class ClientsReadComponent implements OnInit, OnDestroy {
   }
 
   public async listarClientes() {
-    const usuarios = await this.clientsReadService.getClientes();
-    if (usuarios.clientes.length === 0) {
+    try {
+      const usuarios = await this.clientsReadService.getClientes();
+      if (usuarios.clientes.length === 0) {
+        this.listaClientesVazia = true;
+      }
+
+      this.listaClientesVazia = false;
+      this.listaClientes.usuario = usuarios.usuario;
+      this.listaClientes.clientes = [...usuarios.clientes];
+
+      this.listaClientes.clientes.forEach((data) => {
+        const dataConvertida = new Date(data.createdAt);
+        const dataFormatada = this.formatDate(dataConvertida);
+
+        data.createdAt = dataFormatada;
+      });
+    } catch (error) {
       this.listaClientesVazia = true;
     }
-
-    this.listaClientesVazia = false;
-    this.listaClientes.usuario = usuarios.usuario;
-    this.listaClientes.clientes = [...usuarios.clientes];
-
-    this.listaClientes.clientes.forEach((data) => {
-      const dataConvertida = new Date(data.createdAt);
-      const dataFormatada = this.formatDate(dataConvertida);
-
-      data.createdAt = dataFormatada;
-    });
   }
 
   public async deletarCliente(id?: string) {
-    console.log(id)
-    // await this.clientesDeleteService.deleteClients(id!);
-    // await this.listarClientes()
+    console.log(id);
+    await this.clientesDeleteService.deleteClients(id!);
+    await this.listarClientes()
   }
 
   private formatDate(date: Date) {
@@ -70,6 +74,6 @@ export class ClientsReadComponent implements OnInit, OnDestroy {
 
   public armazenaIdCliente(idCliente: string | unknown) {
     localStorage.setItem('idCliente', String(idCliente));
-    localStorage.setItem('page', '/update/atualizar-formulario')
+    localStorage.setItem('page', '/update/atualizar-formulario');
   }
 }

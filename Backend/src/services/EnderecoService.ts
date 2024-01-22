@@ -104,3 +104,7 @@ export async function updateMarcarPrincipal(cep: string, idCliente: string) {
 export async function deleteEndereco(idEndereco: string) {
   return await EnderecoModel.destroy({ where: { idEndereco } });
 }
+
+export async function deleteEnderecoCliente(idCliente: string) {
+  return await EnderecoModel.destroy({ where: { idCliente } });
+}

@@ -80,3 +80,7 @@ export async function updateMarcarPrincipal(numero: string, idCliente: string) {
 export async function deleteTelefone(idTelefone: string) {
   return await TelefoneModel.destroy({ where: { idTelefone } });
 }
+
+export async function deleteTelefoneCliente(idCliente: string) {
+  return await TelefoneModel.destroy({ where: { idCliente } });
+}
