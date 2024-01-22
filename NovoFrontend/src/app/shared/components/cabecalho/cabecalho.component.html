@@ -126,11 +126,11 @@
 
               </div>
               <div class="input-nome">
-                <input type="text" class="form-control" id="exempleInputEmail" aria-describedby="emailHelp"
-                  [formControl]="form.controls.nome">
-                <!-- <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                  [formControl]="form.controls.email" (keyup)="nomeEstaHabilitado($event)"
-                  (keyup)="habilitarBotaoSalvarSemSenha()" (keyup)="habilitarBotaoSalvarComSenha()"> -->
+                <!-- <input type="text" class="form-control" id="exempleInputNome" aria-describedby="emailHelp"
+                [(ngModel)]="inputNome" (click)="nomeEstaHabilitado($event)" > -->
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  [(ngModel)]="inputNome" (keyup)="nomeEstaHabilitado($event)" (keyup)="habilitarBotaoSalvarSemSenha()"
+                  (keyup)="habilitarBotaoSalvarComSenha()">
               </div>
             </div>
           </div>
@@ -156,7 +156,8 @@
               </div>
               <div class="input-email">
                 <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"
-                [formControl]="form.controls.email">
+                  [(ngModel)]="inputEmail" (keyup)="emailEstaHabilitado($event)"
+                  (keyup)="habilitarBotaoSalvarSemSenha()" (keyup)="habilitarBotaoSalvarComSenha()">
                 <!-- <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"
                   [(ngModel)]="inputEmail" (keyup)="emailEstaHabilitado($event)"
                   (keyup)="habilitarBotaoSalvarSemSenha()" (keyup)="habilitarBotaoSalvarComSenha()"> -->
@@ -286,12 +287,19 @@
 
           <div style="display: flex;" *ngIf="salvarUsuarioSemSenha">
             <!-- <button type="button" class="salvar-usuario-desabilitado btn btn" disabled *ngIf="!podeHabilitarBotaoSalvarSemSenha">Salvar</button> -->
-            <button type="button" class="salvar-usuario btn btn" [disabled]="form.valid === false || form.untouched" data-bs-dismiss="modal" (click)="atualizarUsuarioSemSenha()">Salvar</button>
+            <!-- <button type="button" class="salvar-usuario btn btn" [disabled]="form.valid === false || form.untouched" data-bs-dismiss="modal" (click)="atualizarUsuarioSemSenha()">Salvar</button> -->
+            <!-- <button type="button" class="salvar-usuario btn btn" *ngIf="!podeHabilitarBotaoSalvarSemSenha" data-bs-dismiss="modal" (click)="atualizarUsuarioSemSenha()" disabled>Salvar s - nh</button> -->
+            <button type="button" class="salvar-usuario-desabilitado btn btn" disabled
+              *ngIf="!podeHabilitarBotaoSalvarSemSenha">Salvar</button>
+
+            <button type="button" class="salvar-usuario btn btn" *ngIf="podeHabilitarBotaoSalvarSemSenha"
+              data-bs-dismiss="modal" (click)="atualizarUsuarioSemSenha()">Salvar</button>
           </div>
 
           <div style="display: flex;" *ngIf="salvarUsuarioComSenha">
             <button type="button" class="salvar-usuario-desabilitado btn btn" disabled
               *ngIf="!podeHabilitarBotaoSalvarComSenha">Salvar</button>
+
             <button type="button" class="salvar-usuario btn btn" *ngIf="podeHabilitarBotaoSalvarComSenha"
               (click)="atualizarUsuarioComSenha()" data-bs-dismiss="modal">Salvar</button>
           </div>
@@ -301,5 +309,3 @@
     </div>
   </div>
 </div>
-
-

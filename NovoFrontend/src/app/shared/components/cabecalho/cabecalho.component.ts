@@ -103,14 +103,11 @@ export class CabecalhoComponent implements OnInit {
 
   public async atualizarUsuarioSemSenha(): Promise<void> {
     try {
-      // this.form.controls.nome.setValue(usuario.usuario.nome);
-      // this.form.controls.email.setValue(usuario.usuario.email);
-      console.log(this.form.controls.nome.value);
       const usuario: string = localStorage.getItem('idUsuario')!;
 
       await this.userPutService.updateSemSenha(
-        this.form.controls.nome.value!,
-        this.form.controls.email.value!,
+        this.inputNome,
+        this.inputEmail,
         usuario
       );
     } catch (error) {
@@ -126,8 +123,8 @@ export class CabecalhoComponent implements OnInit {
         console.log('Pode cadastrar');
 
         await this.userPutService.updateComSenha(
-          this.form.controls.nome.value!,
-          this.form.controls.email.value!,
+          this.inputNome,
+          this.inputEmail,
           this.inputSenha,
           this.inputNovaSenha,
           usuario
@@ -194,7 +191,6 @@ export class CabecalhoComponent implements OnInit {
     if (habilitar === true) {
       this.podeHabilitarBotaoSalvarSemSenha = true;
     } else {
-      console.log(this.inputNome);
       this.podeHabilitarBotaoSalvarSemSenha = false;
     }
   }
@@ -215,10 +211,11 @@ export class CabecalhoComponent implements OnInit {
   }
 
   public nomeEstaHabilitado($event: any): boolean {
+    console.log('Nome: ', this.inputNome)
     if (
-      this.inputNome === '' ||
-      this.inputNome === undefined ||
-      this.inputNome === null
+      this.form.controls.nome.value === '' ||
+      this.form.controls.nome.value === undefined ||
+      this.form.controls.nome.value === null
     ) {
       return (this.habilitarInputNome = false);
     } else {
@@ -227,10 +224,11 @@ export class CabecalhoComponent implements OnInit {
   }
 
   public emailEstaHabilitado($event: any): boolean {
+    console.log('Email: ', this.inputEmail)
     if (
-      this.inputEmail === '' ||
-      this.inputEmail === undefined ||
-      this.inputEmail === null
+      this.form.controls.email.value === '' ||
+      this.form.controls.email.value === undefined ||
+      this.form.controls.email.value === null
     ) {
       return (this.habilitarInputEmail = false);
     } else {
@@ -239,6 +237,7 @@ export class CabecalhoComponent implements OnInit {
   }
 
   public senhaEstaHabilitado($event: any): boolean {
+    console.log('Senha atual: ', this.inputSenha);
     if (
       this.inputSenha === '' ||
       this.inputSenha === undefined ||
@@ -251,6 +250,7 @@ export class CabecalhoComponent implements OnInit {
   }
 
   public senhaAtualEstaHabilitado($event: any): boolean {
+    console.log('Nova senha: ', this.inputNovaSenha)
     if (
       this.inputNovaSenha === '' ||
       this.inputNovaSenha === undefined ||
@@ -263,6 +263,7 @@ export class CabecalhoComponent implements OnInit {
   }
 
   public confirmarSenhaEstaHabilitado($event: any): boolean {
+    console.log('Confirmar senha: ', this.inputConfirmarSenha)
     if (
       this.inputConfirmarSenha === '' ||
       this.inputConfirmarSenha === undefined ||
