@@ -1,0 +1,26 @@
+.cabecalho {
+  h2 {
+    color: var(--Primary-100, #D8E8FD);
+
+    /* H2 */
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 36px;
+    /* 128.571% */
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    color: var(--Grayscale-400, #6C757D);
+
+    /* Body/Default */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+  }
+}

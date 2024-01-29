@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './shared/services/login/login.service';
 import { AuthGuardChild } from './guards/auth-guard-child.guard';
 import { AuthGuard } from './guards/auth-guard.guard';
+import { LogoDecisaoComponent } from './shared/components/logo-decisao/logo-decisao.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AuthGuard } from './guards/auth-guard.guard';
     FooterComponent,
     RegisterComponent,
     LoginComponent,
+    LogoDecisaoComponent,
   ],
   imports: [
     BrowserModule,

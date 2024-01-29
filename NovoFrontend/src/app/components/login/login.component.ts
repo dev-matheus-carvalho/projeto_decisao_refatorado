@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/shared/services/login/login.service';
+import { LogoDecisaoService } from 'src/app/shared/services/logo-decisao/logo-decisao.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   // Usuário logado
   private token: string = '';
@@ -37,7 +38,11 @@ export class LoginComponent {
   public errorInputSenha: string = '';
   public mostrarMsgErrorSenha: boolean = false;
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router, private logoDecisaoService: LogoDecisaoService) {}
+
+  ngOnInit(): void {
+      this.logoDecisaoService.setCabecalhoLogoLoginERegister('Seja bem vindo', 'Insira seus dados e acesse a plataforma');
+  }
 
   public async login() {
     try {
