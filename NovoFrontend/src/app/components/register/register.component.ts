@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LogoDecisaoService } from 'src/app/shared/services/logo-decisao/logo-decisao.service';
 import { RegisterService } from 'src/app/shared/services/register/register.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { RegisterService } from 'src/app/shared/services/register/register.servi
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
   // .................................. Dados .....................................
 
@@ -37,9 +38,13 @@ export class RegisterComponent {
 
   // ================================== Contrutor ==================================
 
-  constructor(private registerService: RegisterService, private router: Router) { }
+  constructor(private registerService: RegisterService, private router: Router, private logoDecisaoService: LogoDecisaoService) { }
 
   // ================================ Registrar ===================================
+
+  ngOnInit(): void {
+    this.logoDecisaoService.setCabecalhoLogoLoginERegister('Criar conta', 'Cria sua conta e desfrute de todo o sistema!');
+  }
 
   public async register(): Promise<void> {
     const senhasIguais = this.verificarSenhas();
