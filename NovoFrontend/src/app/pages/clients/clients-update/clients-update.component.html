@@ -1,0 +1,36 @@
+<div class="global">
+  <div class="barra-superior">
+
+    <div class="rotas">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+
+  <div class="menu">
+    <div class="linha">
+      <div class="vr"></div>
+    </div>
+
+
+    <div class="opcoes">
+      <!-- <p routerLinkActive="link-ativo"  routerLink="/update/atualizar-formulario/">Dados cadastrais</p> -->
+
+      <div class="dados-cadastrais" routerLinkActive="link-ativo">
+        <p routerLink="/update/atualizar-formulario/">Dados cadastrais</p>
+      </div>
+
+      <div routerLinkActive="link-ativo">
+        <p routerLink="/update/atualizar-localizacao/">Localização</p>
+      </div>
+
+      <div routerLinkActive="link-ativo">
+        <p routerLink="/update/atualizar-representantes/listar-representantes/">Representantes</p>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

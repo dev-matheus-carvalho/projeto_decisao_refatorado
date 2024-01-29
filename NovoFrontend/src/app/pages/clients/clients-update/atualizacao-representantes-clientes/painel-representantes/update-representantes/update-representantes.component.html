@@ -1,0 +1,68 @@
+<div class="global">
+  <div class="barra-superior">
+    <!-- <p class="topo">
+      <a class="cliente">Representante</a> <span class="barra"> / </span>
+      <span class="editar">Criar</span>
+    </p> -->
+
+    <div class="cabecalho">
+      <h5>Dados representante</h5>
+
+      <div class="linha-um">
+        <hr />
+      </div>
+
+      <div class="campos-obrigatorios">
+        <img class="estrela" src="../../../../assets/estrela.png" />
+        <p class="texto-obrigatorio">Campos obrigatórios</p>
+      </div>
+    </div>
+
+    <div class="rotas">
+      <!-- <div class="identificacao-e-data">
+        <div class="data mb-3">
+          <div class="cabecalho">
+            <p>CNPJ/CPF</p>
+            <img src="../../../../../assets/estrela.png" />
+          </div>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="00.000.000/0000-00"
+            [formControl]="form.controls.identificacao" (keyup)="eventIdentificacao($event)" (keyup)="event()" />
+        </div>
+
+
+      </div> -->
+
+      <div class="nome-identificacao">
+        <div class="nome mb-3">
+          <div class="cabecalho">
+            <p>CPF/CNPJ</p>
+            <img src="../../../../../assets/estrela.png" />
+          </div>
+          <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="inputIndentificacao" placeholder="00.000.000/0000-00"
+            (keyup)="eventIdentificacao($event)" (keyup)="event()" disabled />
+        </div>
+
+
+        <div class="nome-fantasia mb-3">
+          <div class="cabecalho">
+            <p>Nome</p>
+            <img src="../../../../../assets/estrela.png" />
+          </div>
+          <input type="text" class="form-control" id="exampleFormControlInput1"
+            [(ngModel)]="inputNome" (keyup)="eventNome($event)"
+            (keyup)="event()" />
+        </div>
+      </div>
+
+
+      <div class="primeira-acao">
+        <button type="button" class="cancelar-um btn btn" (click)="cancelar()" routerLink="/update/atualizar-representantes/listar-representantes/">Cancelar</button>
+        <button type="button" class="salvar-habilitado-um btn btn" *ngIf="desabilitarBotaoSalvar"
+          (click)="atualizarRepresentante()">Salvar cliente</button>
+        <button type="button" class="salvar-desabilitado-um btn btn" disabled *ngIf="!desabilitarBotaoSalvar">Salvar
+          cliente</button>
+      </div>
+
+    </div>
+  </div>
+</div>
