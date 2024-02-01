@@ -6,7 +6,7 @@ import { ClientsReadComponent } from './clients-read/components/clients-read.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { ClientsCreateComponent } from './clients-create/clients-create.component';
+import { ClientsCreateComponent } from './clients-create/components/clients-create.component';
 import { FormsComponent } from './clients-create/forms/forms.component';
 import { LocalizacaoComponent } from './clients-create/localizacao/localizacao.component';
 import { RepresentantesComponent } from './clients-create/representantes/representantes.component';

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientsReadComponent } from './clients-read/components/clients-read.component';
-import { ClientsCreateComponent } from './clients-create/clients-create.component';
+import { ClientsCreateComponent } from './clients-create/components/clients-create.component';
 import { FormsComponent } from './clients-create/forms/forms.component';
 import { LocalizacaoComponent } from './clients-create/localizacao/localizacao.component';
 import { RepresentantesComponent } from './clients-create/representantes/representantes.component';

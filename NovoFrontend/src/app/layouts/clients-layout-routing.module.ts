@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardChild } from 'src/app/guards/auth-guard-child.guard';
-import { ClientsCreateComponent } from 'src/app/pages/clients/clients-create/clients-create.component';
+import { ClientsCreateComponent } from 'src/app/pages/clients/clients-create/components/clients-create.component';
 import { FormsComponent } from 'src/app/pages/clients/clients-create/forms/forms.component';
 import { LocalizacaoComponent } from 'src/app/pages/clients/clients-create/localizacao/localizacao.component';
 import { CadastroComponent } from 'src/app/pages/clients/clients-create/representantes/cadastro/cadastro.component';
