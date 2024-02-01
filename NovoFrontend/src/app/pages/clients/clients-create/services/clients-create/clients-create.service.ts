@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PostClient } from 'src/app/shared/interfaces/clients/clients-post/ClientsPostInterface';
+import { PostClient } from 'src/app/pages/clients/clients-create/models/interfaces/clients/clients-post/ClientsPostInterface';
 
 @Injectable({
   providedIn: 'root',

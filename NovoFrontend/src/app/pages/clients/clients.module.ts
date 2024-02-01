@@ -7,8 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ClientsCreateComponent } from './clients-create/components/clients-create.component';
-import { FormsComponent } from './clients-create/forms/forms.component';
-import { LocalizacaoComponent } from './clients-create/localizacao/localizacao.component';
+import { FormsComponent } from './clients-create/componentes filhas/forms/forms.component';
+import { LocalizacaoComponent } from './clients-create/componentes filhas/localizacao/localizacao.component';
 import { RepresentantesComponent } from './clients-create/representantes/representantes.component';
 import { CadastroComponent } from './clients-create/representantes/cadastro/cadastro.component';
 import { ClientsReadService } from 'src/app/pages/clients/clients-read/services/clients/clients-read/clients-read.service';
