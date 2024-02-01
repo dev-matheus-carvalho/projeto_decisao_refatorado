@@ -5,20 +5,20 @@ import {
   GetEnderecosInterface,
 } from 'src/app/shared/interfaces/enderecos/listarEnderecos/getEnderecosInterface';
 import { GetAllTelefones } from 'src/app/shared/interfaces/telefones/getAllTelefone/gelAllTelefonesInterface';
-import { ClientsCreateEnderecosService } from 'src/app/pages/clients/clients-update/services/clients-create-enderecos/clients-create-enderecos.service';
-import { ClientsDeleteEnderecosService } from 'src/app/pages/clients/clients-update/services/clients-delete-enderecos/clients-delete-enderecos.service';
-import { ClientsGetEnderecosService } from 'src/app/pages/clients/clients-update/services/clients-get-enderecos/clients-get-enderecos.service';
-import { ClientsUpdateEnderecosService } from 'src/app/pages/clients/clients-update/services/clients-update-enderecos/clients-update-enderecos.service';
-import { ClientsCreateEmailService } from 'src/app/pages/clients/clients-update/services/clients-create-email/clients-create-email.service';
-import { ClientsDeleteEmailService } from 'src/app/pages/clients/clients-update/services/clients-delete-email/clients-delete-email.service';
-import { ClientsGetAllEmailsService } from 'src/app/pages/clients/clients-update/services/clients-get-all-emails/clients-get-all-emails.service';
-import { ClientsGetOneEmailService } from 'src/app/pages/clients/clients-update/services/clients-get-one-email/clients-get-one-email.service';
-import { ClientsUpdateEmailService } from 'src/app/pages/clients/clients-update/services/clients-update-email/clients-update-email.service';
-import { ClientsCreateTelefonesService } from 'src/app/pages/clients/clients-update/services/clients-create-telefones/clients-create-telefones.service';
-import { ClientsDeleteTelefoneService } from 'src/app/pages/clients/clients-update/services/clients-delete-telefone/clients-delete-telefone.service';
-import { ClientsGetAllTelefonesService } from 'src/app/pages/clients/clients-update/services/clients-get-all-telefones/clients-get-all-telefones.service';
-import { ClientsGetOneTelefoneService } from 'src/app/pages/clients/clients-update/services/clients-get-one-telefone/clients-get-one-telefone.service';
-import { ClientsUpdateTelefoneService } from 'src/app/pages/clients/clients-update/services/clients-update-telefone/clients-update-telefone.service';
+import { ClientsCreateEnderecosService } from 'src/app/pages/clients/clients-update/services/enderecos/clients-create-enderecos/clients-create-enderecos.service';
+import { ClientsDeleteEnderecosService } from 'src/app/pages/clients/clients-update/services/enderecos/clients-delete-enderecos/clients-delete-enderecos.service';
+import { ClientsGetEnderecosService } from 'src/app/pages/clients/clients-update/services/enderecos/clients-get-enderecos/clients-get-enderecos.service';
+import { ClientsUpdateEnderecosService } from 'src/app/pages/clients/clients-update/services/enderecos/clients-update-enderecos/clients-update-enderecos.service';
+import { ClientsCreateEmailService } from 'src/app/pages/clients/clients-update/services/email/clients-create-email/clients-create-email.service';
+import { ClientsDeleteEmailService } from 'src/app/pages/clients/clients-update/services/email/clients-delete-email/clients-delete-email.service';
+import { ClientsGetAllEmailsService } from 'src/app/pages/clients/clients-update/services/email/clients-get-all-emails/clients-get-all-emails.service';
+import { ClientsGetOneEmailService } from 'src/app/pages/clients/clients-update/services/email/clients-get-one-email/clients-get-one-email.service';
+import { ClientsUpdateEmailService } from 'src/app/pages/clients/clients-update/services/email/clients-update-email/clients-update-email.service';
+import { ClientsCreateTelefonesService } from 'src/app/pages/clients/clients-update/services/telefone/clients-create-telefones/clients-create-telefones.service';
+import { ClientsDeleteTelefoneService } from 'src/app/pages/clients/clients-update/services/telefone/clients-delete-telefone/clients-delete-telefone.service';
+import { ClientsGetAllTelefonesService } from 'src/app/pages/clients/clients-update/services/telefone/clients-get-all-telefones/clients-get-all-telefones.service';
+import { ClientsGetOneTelefoneService } from 'src/app/pages/clients/clients-update/services/telefone/clients-get-one-telefone/clients-get-one-telefone.service';
+import { ClientsUpdateTelefoneService } from 'src/app/pages/clients/clients-update/services/telefone/clients-update-telefone/clients-update-telefone.service';
 
 @Component({
   selector: 'app-atualizacao-localizacao-clientes',
