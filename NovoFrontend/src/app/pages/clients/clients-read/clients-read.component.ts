@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClientsReadInterface } from 'src/app/shared/interfaces/clients/clients-read/clientsReadInterface';
-import { ClientesDeleteService } from 'src/app/shared/services/clients/clients-delete/clientes-delete.service';
-import { ClientsReadService } from 'src/app/shared/services/clients/clients-read/clients-read.service';
+import { ClientesDeleteService } from 'src/app/pages/clients/clients-read/services/clients-delete/clientes-delete.service';
+import { ClientsReadService } from 'src/app/pages/clients/clients-read/services/clients-read/clients-read.service';
 
 @Component({
   selector: 'app-clients-read',

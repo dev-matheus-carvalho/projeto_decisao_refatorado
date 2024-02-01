@@ -11,7 +11,7 @@ import { FormsComponent } from './clients-create/forms/forms.component';
 import { LocalizacaoComponent } from './clients-create/localizacao/localizacao.component';
 import { RepresentantesComponent } from './clients-create/representantes/representantes.component';
 import { CadastroComponent } from './clients-create/representantes/cadastro/cadastro.component';
-import { ClientsReadService } from 'src/app/shared/services/clients/clients-read/clients-read.service';
+import { ClientsReadService } from 'src/app/pages/clients/clients-read/services/clients-read/clients-read.service';
 import { ClientsUpdateComponent } from './clients-update/clients-update.component';
 import { AtualizacaoFormularioClientesComponent } from './clients-update/atualizacao-formulario-clientes/atualizacao-formulario-clientes.component';
 import { AtualizacaoLocalizacaoClientesComponent } from './clients-update/atualizacao-localizacao-clientes/atualizacao-localizacao-clientes.component';
