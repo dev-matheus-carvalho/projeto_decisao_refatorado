@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ClientsRoutingModule } from './clients-routing.module';
-import { ClientsReadComponent } from './clients-read/clients-read.component';
+import { ClientsReadComponent } from './clients-read/components/clients-read.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,7 +11,7 @@ import { FormsComponent } from './clients-create/forms/forms.component';
 import { LocalizacaoComponent } from './clients-create/localizacao/localizacao.component';
 import { RepresentantesComponent } from './clients-create/representantes/representantes.component';
 import { CadastroComponent } from './clients-create/representantes/cadastro/cadastro.component';
-import { ClientsReadService } from 'src/app/pages/clients/clients-read/services/clients-read/clients-read.service';
+import { ClientsReadService } from 'src/app/pages/clients/clients-read/services/clients/clients-read/clients-read.service';
 import { ClientsUpdateComponent } from './clients-update/components/clients-update.component';
 import { AtualizacaoFormularioClientesComponent } from './clients-update/componentes filhas/atualizacao-formulario-clientes/atualizacao-formulario-clientes.component';
 import { AtualizacaoLocalizacaoClientesComponent } from './clients-update/componentes filhas/atualizacao-localizacao-clientes/atualizacao-localizacao-clientes.component';

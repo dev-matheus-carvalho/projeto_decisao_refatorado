@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ClientsLayoutRoutingModule } from './clients-layout-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ClientsReadComponent } from 'src/app/pages/clients/clients-read/clients-read.component';
+import { ClientsReadComponent } from 'src/app/pages/clients/clients-read/components/clients-read.component';
 import { ClientsCreateComponent } from 'src/app/pages/clients/clients-create/clients-create.component';
 import { FormsComponent } from 'src/app/pages/clients/clients-create/forms/forms.component';
 import { LocalizacaoComponent } from 'src/app/pages/clients/clients-create/localizacao/localizacao.component';

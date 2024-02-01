@@ -6,7 +6,7 @@ import { FormsComponent } from 'src/app/pages/clients/clients-create/forms/forms
 import { LocalizacaoComponent } from 'src/app/pages/clients/clients-create/localizacao/localizacao.component';
 import { CadastroComponent } from 'src/app/pages/clients/clients-create/representantes/cadastro/cadastro.component';
 import { RepresentantesComponent } from 'src/app/pages/clients/clients-create/representantes/representantes.component';
-import { ClientsReadComponent } from 'src/app/pages/clients/clients-read/clients-read.component';
+import { ClientsReadComponent } from 'src/app/pages/clients/clients-read/components/clients-read.component';
 import { AtualizacaoFormularioClientesComponent } from 'src/app/pages/clients/clients-update/componentes filhas/atualizacao-formulario-clientes/atualizacao-formulario-clientes.component';
 import { AtualizacaoLocalizacaoClientesComponent } from 'src/app/pages/clients/clients-update/componentes filhas/atualizacao-localizacao-clientes/atualizacao-localizacao-clientes.component';
 import { AtualizacaoRepresentantesClientesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/atualizacao-representantes-clientes.component';
