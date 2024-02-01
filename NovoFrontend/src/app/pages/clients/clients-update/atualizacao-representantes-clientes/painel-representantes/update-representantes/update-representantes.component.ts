@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ClientsGetOneRepresentanteService } from 'src/app/shared/services/clients/representantes/clients-get-one-representante/clients-get-one-representante.service';
-import { ClientsUpdateRepresentanteService } from 'src/app/shared/services/clients/representantes/clients-update-representante/clients-update-representante.service';
+import { ClientsGetOneRepresentanteService } from 'src/app/pages/clients/clients-update/services/clients-get-one-representante/clients-get-one-representante.service';
+import { ClientsUpdateRepresentanteService } from 'src/app/pages/clients/clients-update/services/clients-update-representante/clients-update-representante.service';
 
 @Component({
   selector: 'app-update-representantes',

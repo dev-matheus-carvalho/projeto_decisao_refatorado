@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ClientsCreateRepresentantesService } from 'src/app/shared/services/clients/representantes/clients-create-representantes/clients-create-representantes.service';
+import { ClientsCreateRepresentantesService } from 'src/app/pages/clients/clients-update/services/clients-create-representantes/clients-create-representantes.service';
 
 @Component({
   selector: 'app-create-representantes',

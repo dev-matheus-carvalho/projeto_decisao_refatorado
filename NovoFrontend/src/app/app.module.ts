@@ -7,7 +7,7 @@ import { CabecalhoComponent } from './shared/components/cabecalho/cabecalho.comp
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { WelcomeModule } from './pages/welcome/welcome.module';
-import { ClientsModule } from './pages/clients/clients.module';
+// import { ClientsModule } from './pages/clients/clients.module';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +15,7 @@ import { LoginService } from './shared/services/login/login.service';
 import { AuthGuardChild } from './guards/auth-guard-child.guard';
 import { AuthGuard } from './guards/auth-guard.guard';
 import { LogoDecisaoComponent } from './shared/components/logo-decisao/logo-decisao.component';
+import { ClientsLayoutModule } from './layouts/clients-layout.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LogoDecisaoComponent } from './shared/components/logo-decisao/logo-deci
     BrowserModule,
     AppRoutingModule,
     WelcomeModule,
-    ClientsModule,
+    // ClientsModule,
+    ClientsLayoutModule,
     FormsModule,
     ReactiveFormsModule,
   ],

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientsCreateService } from 'src/app/shared/services/clients/clients-create/clients-create.service';
-import { ClientsGetByIdService } from 'src/app/shared/services/clients/clients-get-by-id/clients-get-by-id.service';
-import { ClientsUpdateService } from 'src/app/shared/services/clients/clients-update/clients-update.service';
+import { ClientsGetByIdService } from 'src/app/pages/clients/clients-update/services/clients-get-by-id/clients-get-by-id.service';
+import { ClientsUpdateService } from 'src/app/pages/clients/clients-update/services/clients-update/clients-update.service';
 
 @Component({
   selector: 'app-atualizacao-formulario-clientes',

@@ -13,7 +13,7 @@ const routes: Routes = [
 
   { path: '', loadChildren: () => import('./pages/welcome/welcome.module').then((m) => m.WelcomeModule), canActivate: [AuthGuard] },
 
-  { path: 'clients', loadChildren: () => import('./pages/clients/clients.module').then((m) => m.ClientsModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
+  { path: 'clients', loadChildren: () => import('./layouts/clients-layout.module').then((m) => m.ClientsLayoutModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
 ];
 
 @NgModule({

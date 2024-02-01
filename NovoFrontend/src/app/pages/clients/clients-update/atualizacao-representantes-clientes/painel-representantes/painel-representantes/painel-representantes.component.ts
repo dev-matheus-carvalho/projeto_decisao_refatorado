@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetAllRepresentantes } from 'src/app/shared/interfaces/representantes/GetAllRepresentantes';
-import { ClientsDeleteRepresentantesService } from 'src/app/shared/services/clients/representantes/clients-delete-representantes/clients-delete-representantes.service';
-import { ClientsGetAllRepresentantesService } from 'src/app/shared/services/clients/representantes/clients-get-all-representantes/clients-get-all-representantes.service';
+import { ClientsDeleteRepresentantesService } from 'src/app/pages/clients/clients-update/services/clients-delete-representantes/clients-delete-representantes.service';
+import { ClientsGetAllRepresentantesService } from 'src/app/pages/clients/clients-update/services/clients-get-all-representantes/clients-get-all-representantes.service';
 
 @Component({
   selector: 'app-painel-representantes',

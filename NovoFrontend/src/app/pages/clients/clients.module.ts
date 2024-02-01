@@ -23,19 +23,19 @@ import { UpdateRepresentantesComponent } from './clients-update/atualizacao-repr
 
 @NgModule({
   declarations: [
-    ClientsReadComponent,
-    ClientsCreateComponent,
-    FormsComponent,
-    LocalizacaoComponent,
-    RepresentantesComponent,
-    CadastroComponent,
-    ClientsUpdateComponent,
-    AtualizacaoFormularioClientesComponent,
-    AtualizacaoLocalizacaoClientesComponent,
-    AtualizacaoRepresentantesClientesComponent,
-    PainelRepresentantesComponent,
-    CreateRepresentantesComponent,
-    UpdateRepresentantesComponent
+    // ClientsReadComponent,
+    // ClientsCreateComponent,
+    // FormsComponent,
+    // LocalizacaoComponent,
+    // RepresentantesComponent,
+    // CadastroComponent,
+    // ClientsUpdateComponent,
+    // AtualizacaoFormularioClientesComponent,
+    // AtualizacaoLocalizacaoClientesComponent,
+    // AtualizacaoRepresentantesClientesComponent,
+    // PainelRepresentantesComponent,
+    // CreateRepresentantesComponent,
+    // UpdateRepresentantesComponent
   ],
   imports: [
     CommonModule,
