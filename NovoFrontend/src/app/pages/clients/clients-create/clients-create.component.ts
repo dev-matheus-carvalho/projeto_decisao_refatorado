@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ClientsCreateService } from 'src/app/shared/services/clients/clients-create/clients-create.service';
+import { ClientsCreateService } from 'src/app/pages/clients/clients-create/services/clients-create/clients-create.service';
 
 @Component({
   selector: 'app-clients-create',
