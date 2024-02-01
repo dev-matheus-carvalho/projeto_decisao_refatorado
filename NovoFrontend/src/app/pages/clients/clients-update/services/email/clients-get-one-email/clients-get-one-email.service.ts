@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GetOneEmails } from 'src/app/shared/interfaces/email/getOneEmail';
+import { GetOneEmails } from 'src/app/pages/clients/clients-update/models/interfaces/email/getOneEmail';
 
 @Injectable({
   providedIn: 'root'

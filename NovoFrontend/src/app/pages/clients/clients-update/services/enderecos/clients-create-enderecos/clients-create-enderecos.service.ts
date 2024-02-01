@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {
   Enderecos,
   GetEnderecosInterface,
-} from 'src/app/shared/interfaces/enderecos/listarEnderecos/getEnderecosInterface';
+} from 'src/app/pages/clients/clients-update/models/interfaces/endereco/listarEnderecos/getEnderecosInterface';
 
 @Injectable({
   providedIn: 'root',

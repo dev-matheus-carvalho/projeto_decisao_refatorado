@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Enderecos } from 'src/app/shared/interfaces/enderecos/listarEnderecos/getEnderecosInterface';
+import { Enderecos } from 'src/app/pages/clients/clients-update/models/interfaces/endereco/listarEnderecos/getEnderecosInterface';
 
 @Injectable({
   providedIn: 'root'

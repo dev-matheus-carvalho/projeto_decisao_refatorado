@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ClientesById } from 'src/app/shared/interfaces/clients/clientes-get-by-id/ClientsGetByIdInterface';
+import { ClientesById } from 'src/app/pages/clients/clients-update/models/interfaces/clients/clientes-get-by-id/ClientsGetByIdInterface';
 
 @Injectable({
   providedIn: 'root'

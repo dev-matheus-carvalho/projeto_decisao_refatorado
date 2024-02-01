@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { GetAllRepresentantes } from 'src/app/shared/interfaces/representantes/GetAllRepresentantes';
+import { GetAllRepresentantes } from 'src/app/pages/clients/clients-update/models/interfaces/representantes/GetAllRepresentantes';
 import { ClientsDeleteRepresentantesService } from 'src/app/pages/clients/clients-update/services/representantes/clients-delete-representantes/clients-delete-representantes.service';
 import { ClientsGetAllRepresentantesService } from 'src/app/pages/clients/clients-update/services/representantes/clients-get-all-representantes/clients-get-all-representantes.service';
 

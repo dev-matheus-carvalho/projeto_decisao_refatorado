@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GetAllTelefones } from 'src/app/shared/interfaces/telefones/getAllTelefone/gelAllTelefonesInterface';
+import { GetAllTelefones } from 'src/app/pages/clients/clients-update/models/interfaces/telefone/getAllTelefone/gelAllTelefonesInterface';
 
 @Injectable({
   providedIn: 'root'

@@ -7,13 +7,13 @@ import { LocalizacaoComponent } from 'src/app/pages/clients/clients-create/local
 import { CadastroComponent } from 'src/app/pages/clients/clients-create/representantes/cadastro/cadastro.component';
 import { RepresentantesComponent } from 'src/app/pages/clients/clients-create/representantes/representantes.component';
 import { ClientsReadComponent } from 'src/app/pages/clients/clients-read/clients-read.component';
-import { AtualizacaoFormularioClientesComponent } from 'src/app/pages/clients/clients-update/atualizacao-formulario-clientes/atualizacao-formulario-clientes.component';
-import { AtualizacaoLocalizacaoClientesComponent } from 'src/app/pages/clients/clients-update/atualizacao-localizacao-clientes/atualizacao-localizacao-clientes.component';
+import { AtualizacaoFormularioClientesComponent } from 'src/app/pages/clients/clients-update/componentes filhas/atualizacao-formulario-clientes/atualizacao-formulario-clientes.component';
+import { AtualizacaoLocalizacaoClientesComponent } from 'src/app/pages/clients/clients-update/componentes filhas/atualizacao-localizacao-clientes/atualizacao-localizacao-clientes.component';
 import { AtualizacaoRepresentantesClientesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/atualizacao-representantes-clientes.component';
 import { CreateRepresentantesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/painel-representantes/create-representantes/create-representantes.component';
 import { PainelRepresentantesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/painel-representantes/painel-representantes/painel-representantes.component';
 import { UpdateRepresentantesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/painel-representantes/update-representantes/update-representantes.component';
-import { ClientsUpdateComponent } from 'src/app/pages/clients/clients-update/clients-update.component';
+import { ClientsUpdateComponent } from 'src/app/pages/clients/clients-update/components/clients-update.component';
 
 const routes: Routes = [
   { path: '', component: ClientsReadComponent },

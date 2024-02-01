@@ -7,9 +7,9 @@ import { LocalizacaoComponent } from './clients-create/localizacao/localizacao.c
 import { RepresentantesComponent } from './clients-create/representantes/representantes.component';
 import { CadastroComponent } from './clients-create/representantes/cadastro/cadastro.component';
 import { AuthGuard } from 'src/app/guards/auth-guard.guard';
-import { ClientsUpdateComponent } from './clients-update/clients-update.component';
-import { AtualizacaoFormularioClientesComponent } from './clients-update/atualizacao-formulario-clientes/atualizacao-formulario-clientes.component';
-import { AtualizacaoLocalizacaoClientesComponent } from './clients-update/atualizacao-localizacao-clientes/atualizacao-localizacao-clientes.component';
+import { ClientsUpdateComponent } from './clients-update/components/clients-update.component';
+import { AtualizacaoFormularioClientesComponent } from './clients-update/componentes filhas/atualizacao-formulario-clientes/atualizacao-formulario-clientes.component';
+import { AtualizacaoLocalizacaoClientesComponent } from './clients-update/componentes filhas/atualizacao-localizacao-clientes/atualizacao-localizacao-clientes.component';
 import { AtualizacaoRepresentantesClientesComponent } from './clients-update/atualizacao-representantes-clientes/atualizacao-representantes-clientes.component';
 import { PainelRepresentantesComponent } from './clients-update/atualizacao-representantes-clientes/painel-representantes/painel-representantes/painel-representantes.component';
 import { CreateRepresentantesComponent } from './clients-update/atualizacao-representantes-clientes/painel-representantes/create-representantes/create-representantes.component';

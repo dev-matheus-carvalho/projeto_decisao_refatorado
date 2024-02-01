@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GetAllRepresentantes } from 'src/app/shared/interfaces/representantes/GetAllRepresentantes';
+import { GetAllRepresentantes } from 'src/app/pages/clients/clients-update/models/interfaces/representantes/GetAllRepresentantes';
 
 @Injectable({
   providedIn: 'root'

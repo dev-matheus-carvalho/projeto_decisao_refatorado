@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GetAllEmails } from 'src/app/shared/interfaces/email/getAllEmails';
+import { GetAllEmails } from 'src/app/pages/clients/clients-update/models/interfaces/email/getAllEmails';
 
 @Injectable({
   providedIn: 'root'

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { GetAllEmails } from 'src/app/shared/interfaces/email/getAllEmails';
+import { GetAllEmails } from 'src/app/pages/clients/clients-update/models/interfaces/email/getAllEmails';
 import {
   Enderecos,
   GetEnderecosInterface,
-} from 'src/app/shared/interfaces/enderecos/listarEnderecos/getEnderecosInterface';
-import { GetAllTelefones } from 'src/app/shared/interfaces/telefones/getAllTelefone/gelAllTelefonesInterface';
+} from 'src/app/pages/clients/clients-update/models/interfaces/endereco/listarEnderecos/getEnderecosInterface';
+import { GetAllTelefones } from 'src/app/pages/clients/clients-update/models/interfaces/telefone/getAllTelefone/gelAllTelefonesInterface';
 import { ClientsCreateEnderecosService } from 'src/app/pages/clients/clients-update/services/enderecos/clients-create-enderecos/clients-create-enderecos.service';
 import { ClientsDeleteEnderecosService } from 'src/app/pages/clients/clients-update/services/enderecos/clients-delete-enderecos/clients-delete-enderecos.service';
 import { ClientsGetEnderecosService } from 'src/app/pages/clients/clients-update/services/enderecos/clients-get-enderecos/clients-get-enderecos.service';
