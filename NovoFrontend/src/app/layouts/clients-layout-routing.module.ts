@@ -17,7 +17,9 @@ import { ClientsUpdateComponent } from 'src/app/pages/clients/clients-update/com
 import { AuthGuard } from '../guards/auth-guard.guard';
 
 const routes: Routes = [
-  { path: '', component: ClientsReadComponent },
+  // { path: '', component: ClientsReadComponent },
+  { path: 'clients', loadChildren: () => import('../pages/clients/clients-read/clients-read.module').then((m) => m.ClientsReadModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
+
   {
     path: 'create',
     component: ClientsCreateComponent,
@@ -33,7 +35,7 @@ const routes: Routes = [
     ],
   },
 
-  {path: 'update', loadChildren: () => import('../pages/clients/clients-update/clients-update.module').then((m) => m.ClientsUpdateModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] }
+  { path: 'update', loadChildren: () => import('../pages/clients/clients-update/clients-update.module').then((m) => m.ClientsUpdateModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] }
 
   // {
   //   path: 'update',

@@ -13,7 +13,8 @@ const routes: Routes = [
 
   { path: '', loadChildren: () => import('./pages/welcome/welcome.module').then((m) => m.WelcomeModule), canActivate: [AuthGuard] },
 
-  { path: 'clients', loadChildren: () => import('./layouts/clients-layout.module').then((m) => m.ClientsLayoutModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
+  { path: 'layout', loadChildren: () => import('./layouts/clients-layout.module').then((m) => m.ClientsLayoutModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
+  // { path: 'clients', loadChildren: () => import('./pages/clients/clients-read/clients-read.module').then((m) => m.ClientsReadModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
 ];
 
 @NgModule({

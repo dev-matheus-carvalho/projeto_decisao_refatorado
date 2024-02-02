@@ -23,7 +23,7 @@ import { ClientsUpdateModule } from '../pages/clients/clients-update/clients-upd
 
 @NgModule({
   declarations: [
-    ClientsReadComponent,
+    // ClientsReadComponent,
     ClientsCreateComponent,
     FormsComponent,
     LocalizacaoComponent,
