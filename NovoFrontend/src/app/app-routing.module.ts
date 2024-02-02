@@ -7,7 +7,7 @@ import { AuthGuardChild } from './shared/guards/auth-guard-child.guard';
 import { LogoDecisaoComponent } from './shared/components/logo-decisao/logo-decisao.component';
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent },
+  // { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'base-cabecalho-login-register', component: LogoDecisaoComponent },
 

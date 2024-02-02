@@ -19,6 +19,8 @@ import { AuthGuard } from '../shared/guards/auth-guard.guard';
 const routes: Routes = [
   // { path: '', component: ClientsReadComponent },
   { path: 'clients', loadChildren: () => import('../pages/clients/clients-read/clients-read.module').then((m) => m.ClientsReadModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
+  { path: 'register', loadChildren: () => import('../pages/register/register.module').then((m) => m.RegisterModule) },
+  { path: 'login', loadChildren: () => import('../pages/login/login.module').then((m) => m.LoginModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
 
   // {
   //   path: 'create',
