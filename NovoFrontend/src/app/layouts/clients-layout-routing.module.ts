@@ -20,20 +20,21 @@ const routes: Routes = [
   // { path: '', component: ClientsReadComponent },
   { path: 'clients', loadChildren: () => import('../pages/clients/clients-read/clients-read.module').then((m) => m.ClientsReadModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
 
-  {
-    path: 'create',
-    component: ClientsCreateComponent,
+  // {
+  //   path: 'create',
+  //   component: ClientsCreateComponent,
 
-    children: [
-      { path: 'formulario', component: FormsComponent },
-      { path: 'localizacao', component: LocalizacaoComponent },
-      {
-        path: 'representantes',
-        component: RepresentantesComponent,
-        children: [{ path: 'cadastrar', component: CadastroComponent }],
-      },
-    ],
-  },
+  //   children: [
+  //     { path: 'formulario', component: FormsComponent },
+  //     { path: 'localizacao', component: LocalizacaoComponent },
+  //     {
+  //       path: 'representantes',
+  //       component: RepresentantesComponent,
+  //       children: [{ path: 'cadastrar', component: CadastroComponent }],
+  //     },
+  //   ],
+  // },
+  { path: 'create', loadChildren: () => import('../pages/clients/clients-create/clients-create.module').then((m) => m.ClientsCreateModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
 
   { path: 'update', loadChildren: () => import('../pages/clients/clients-update/clients-update.module').then((m) => m.ClientsUpdateModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] }
 

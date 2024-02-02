@@ -24,11 +24,11 @@ import { ClientsUpdateModule } from '../pages/clients/clients-update/clients-upd
 @NgModule({
   declarations: [
     // ClientsReadComponent,
-    ClientsCreateComponent,
-    FormsComponent,
-    LocalizacaoComponent,
-    RepresentantesComponent,
-    CadastroComponent,
+    // ClientsCreateComponent,
+    // FormsComponent,
+    // LocalizacaoComponent,
+    // RepresentantesComponent,
+    // CadastroComponent,
     // ClientsUpdateComponent,
     // AtualizacaoFormularioClientesComponent,
     // AtualizacaoLocalizacaoClientesComponent,
