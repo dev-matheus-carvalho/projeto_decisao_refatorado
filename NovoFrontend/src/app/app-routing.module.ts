@@ -8,7 +8,7 @@ import { LogoDecisaoComponent } from './shared/components/logo-decisao/logo-deci
 
 const routes: Routes = [
   // { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  // { path: 'login', component: LoginComponent },
   { path: 'base-cabecalho-login-register', component: LogoDecisaoComponent },
 
   { path: '', loadChildren: () => import('./pages/welcome/welcome.module').then((m) => m.WelcomeModule), canActivate: [AuthGuard] },
