@@ -12,8 +12,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './shared/services/login/login.service';
-import { AuthGuardChild } from './guards/auth-guard-child.guard';
-import { AuthGuard } from './guards/auth-guard.guard';
+import { AuthGuardChild } from './shared/guards/auth-guard-child.guard';
+import { AuthGuard } from './shared/guards/auth-guard.guard';
 import { LogoDecisaoComponent } from './shared/components/logo-decisao/logo-decisao.component';
 import { ClientsLayoutModule } from './layouts/clients-layout.module';
 

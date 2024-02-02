@@ -7,7 +7,7 @@ import { AtualizacaoRepresentantesClientesComponent } from './atualizacao-repres
 import { PainelRepresentantesComponent } from './atualizacao-representantes-clientes/painel-representantes/painel-representantes/painel-representantes.component';
 import { CreateRepresentantesComponent } from './atualizacao-representantes-clientes/painel-representantes/create-representantes/create-representantes.component';
 import { UpdateRepresentantesComponent } from './atualizacao-representantes-clientes/painel-representantes/update-representantes/update-representantes.component';
-import { AuthGuardChild } from 'src/app/guards/auth-guard-child.guard';
+import { AuthGuardChild } from 'src/app/shared/guards/auth-guard-child.guard';
 
 const routes: Routes = [
   {

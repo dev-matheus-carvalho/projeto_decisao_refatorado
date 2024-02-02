@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardChild } from 'src/app/guards/auth-guard-child.guard';
+import { AuthGuardChild } from 'src/app/shared/guards/auth-guard-child.guard';
 import { ClientsCreateComponent } from 'src/app/pages/clients/clients-create/components/clients-create.component';
 import { FormsComponent } from 'src/app/pages/clients/clients-create/componentes filhas/forms/forms.component';
 import { LocalizacaoComponent } from 'src/app/pages/clients/clients-create/componentes filhas/localizacao/localizacao.component';
@@ -14,7 +14,7 @@ import { CreateRepresentantesComponent } from 'src/app/pages/clients/clients-upd
 import { PainelRepresentantesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/painel-representantes/painel-representantes/painel-representantes.component';
 import { UpdateRepresentantesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/painel-representantes/update-representantes/update-representantes.component';
 import { ClientsUpdateComponent } from 'src/app/pages/clients/clients-update/components/clients-update.component';
-import { AuthGuard } from '../guards/auth-guard.guard';
+import { AuthGuard } from '../shared/guards/auth-guard.guard';
 
 const routes: Routes = [
   // { path: '', component: ClientsReadComponent },
