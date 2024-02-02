@@ -14,6 +14,7 @@ import { CreateRepresentantesComponent } from 'src/app/pages/clients/clients-upd
 import { PainelRepresentantesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/painel-representantes/painel-representantes/painel-representantes.component';
 import { UpdateRepresentantesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/painel-representantes/update-representantes/update-representantes.component';
 import { ClientsUpdateComponent } from 'src/app/pages/clients/clients-update/components/clients-update.component';
+import { AuthGuard } from '../guards/auth-guard.guard';
 
 const routes: Routes = [
   { path: '', component: ClientsReadComponent },
@@ -32,40 +33,42 @@ const routes: Routes = [
     ],
   },
 
-  {
-    path: 'update',
-    component: ClientsUpdateComponent,
+  {path: 'update', loadChildren: () => import('../pages/clients/clients-update/clients-update.module').then((m) => m.ClientsUpdateModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] }
 
-    children: [
-      {
-        path: 'atualizar-formulario',
-        component: AtualizacaoFormularioClientesComponent,
-      },
-      {
-        path: 'atualizar-localizacao',
-        component: AtualizacaoLocalizacaoClientesComponent,
-      },
-      {
-        path: 'atualizar-representantes',
-        component: AtualizacaoRepresentantesClientesComponent,
-        children: [
-          {
-            path: 'listar-representantes',
-            component: PainelRepresentantesComponent,
-          },
-          {
-            path: 'criar-representante',
-            component: CreateRepresentantesComponent,
-          },
-          {
-            path: 'atualizar-representante',
-            component: UpdateRepresentantesComponent,
-          },
-        ],
-      },
-    ],
-    canActivateChild: [AuthGuardChild],
-  },
+  // {
+  //   path: 'update',
+  //   component: ClientsUpdateComponent,
+
+  //   children: [
+  //     {
+  //       path: 'atualizar-formulario',
+  //       component: AtualizacaoFormularioClientesComponent,
+  //     },
+  //     {
+  //       path: 'atualizar-localizacao',
+  //       component: AtualizacaoLocalizacaoClientesComponent,
+  //     },
+  //     {
+  //       path: 'atualizar-representantes',
+  //       component: AtualizacaoRepresentantesClientesComponent,
+  //       children: [
+  //         {
+  //           path: 'listar-representantes',
+  //           component: PainelRepresentantesComponent,
+  //         },
+  //         {
+  //           path: 'criar-representante',
+  //           component: CreateRepresentantesComponent,
+  //         },
+  //         {
+  //           path: 'atualizar-representante',
+  //           component: UpdateRepresentantesComponent,
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   canActivateChild: [AuthGuardChild],
+  // },
 ];
 
 @NgModule({

@@ -18,6 +18,7 @@ import { PainelRepresentantesComponent } from 'src/app/pages/clients/clients-upd
 import { CreateRepresentantesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/painel-representantes/create-representantes/create-representantes.component';
 import { UpdateRepresentantesComponent } from 'src/app/pages/clients/clients-update/atualizacao-representantes-clientes/painel-representantes/update-representantes/update-representantes.component';
 import { ClientsComponentUpdateComponent } from './clients/clients-component-update/clients-component-update.component';
+import { ClientsUpdateModule } from '../pages/clients/clients-update/clients-update.module';
 
 
 @NgModule({
@@ -28,13 +29,13 @@ import { ClientsComponentUpdateComponent } from './clients/clients-component-upd
     LocalizacaoComponent,
     RepresentantesComponent,
     CadastroComponent,
-    ClientsUpdateComponent,
-    AtualizacaoFormularioClientesComponent,
-    AtualizacaoLocalizacaoClientesComponent,
-    AtualizacaoRepresentantesClientesComponent,
-    PainelRepresentantesComponent,
-    CreateRepresentantesComponent,
-    UpdateRepresentantesComponent,
+    // ClientsUpdateComponent,
+    // AtualizacaoFormularioClientesComponent,
+    // AtualizacaoLocalizacaoClientesComponent,
+    // AtualizacaoRepresentantesClientesComponent,
+    // PainelRepresentantesComponent,
+    // CreateRepresentantesComponent,
+    // UpdateRepresentantesComponent,
     ClientsComponentUpdateComponent
   ],
   imports: [
@@ -42,7 +43,9 @@ import { ClientsComponentUpdateComponent } from './clients/clients-component-upd
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ClientsLayoutRoutingModule
-  ]
+    ClientsLayoutRoutingModule,
+    // ClientsUpdateModule,
+  ],
+  exports: [ClientsComponentUpdateComponent]
 })
 export class ClientsLayoutModule { }
