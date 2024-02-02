@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterComponent } from './pages/register/register.component';
-import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/components/register.component';
+import { LoginComponent } from './pages/login/components/login.component';
 import { AuthGuard } from './shared/guards/auth-guard.guard';
 import { AuthGuardChild } from './shared/guards/auth-guard-child.guard';
 import { LogoDecisaoComponent } from './shared/components/logo-decisao/logo-decisao.component';
