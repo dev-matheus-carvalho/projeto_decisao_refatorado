@@ -11,11 +11,11 @@ import { AuthGuard } from './shared/guards/auth-guard.guard';
 const routes: Routes = [
   // { path: 'register', component: RegisterComponent },
   // { path: 'login', component: LoginComponent },
-  { path: 'base-cabecalho-login-register', component: LogoDecisaoComponent },
+  // { path: 'base-cabecalho-login-register', component: LogoDecisaoComponent },
 
-  { path: '', loadChildren: () => import('./pages/welcome/welcome.module').then((m) => m.WelcomeModule), canActivate: [AuthGuard] },
+  // { path: '', loadChildren: () => import('./pages/welcome/welcome.module').then((m) => m.WelcomeModule), canActivate: [AuthGuard] },
 
-  { path: 'layout', loadChildren: () => import('./layouts/login-layout/login-layout.module').then((m) => m.LoginLayoutModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
+  { path: '', loadChildren: () => import('./layouts/login-layout/login-layout.module').then((m) => m.LoginLayoutModule) },
   // { path: 'clients', loadChildren: () => import('./pages/clients/clients-read/clients-read.module').then((m) => m.ClientsReadModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
 ];
 

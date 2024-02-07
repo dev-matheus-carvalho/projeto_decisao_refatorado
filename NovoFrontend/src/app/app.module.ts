@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WelcomeModule } from './pages/welcome/welcome.module';
-import { ClientsLayoutModule } from './layouts/clients-layout.module';
+// import { ClientsLayoutModule } from './layouts/clients-layout.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CabecalhoComponent } from './shared/components/cabecalho/cabecalho.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
@@ -14,6 +14,7 @@ import { LogoDecisaoComponent } from './shared/components/logo-decisao/logo-deci
 import { AuthGuardChild } from './shared/guards/auth-guard-child.guard';
 import { AuthGuard } from './shared/guards/auth-guard.guard';
 import { LoginService } from './shared/services/login/login.service';
+import { LoginLayoutModule } from './layouts/login-layout/login-layout.module';
 
 // import { AppRoutingModule } from './app-routing.module';
 // import { AppComponent } from './components/app.component';
@@ -46,7 +47,8 @@ import { LoginService } from './shared/services/login/login.service';
     AppRoutingModule,
     WelcomeModule,
     // // ClientsModule,
-    ClientsLayoutModule,
+    // ClientsLayoutModule,
+    LoginLayoutModule,
     FormsModule,
     ReactiveFormsModule,
   ],

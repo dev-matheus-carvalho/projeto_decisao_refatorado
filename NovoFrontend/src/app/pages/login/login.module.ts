@@ -4,8 +4,9 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ClientsLayoutModule } from 'src/app/layouts/clients-layout.module';
+// import { ClientsLayoutModule } from 'src/app/layouts/clients-layout.module';
 import { LoginComponent } from './components/login.component';
+import { LoginLayoutModule } from 'src/app/layouts/login-layout/login-layout.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LoginComponent } from './components/login.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ClientsLayoutModule,
+    // ClientsLayoutModule,
+    LoginLayoutModule,
     LoginRoutingModule
   ]
 })
