@@ -21,21 +21,6 @@ const routes: Routes = [
   { path: 'clients', loadChildren: () => import('../pages/clients/clients-read/clients-read.module').then((m) => m.ClientsReadModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
   { path: 'register', loadChildren: () => import('../pages/register/register.module').then((m) => m.RegisterModule) },
   { path: 'login', loadChildren: () => import('../pages/login/login.module').then((m) => m.LoginModule) },
-
-  // {
-  //   path: 'create',
-  //   component: ClientsCreateComponent,
-
-  //   children: [
-  //     { path: 'formulario', component: FormsComponent },
-  //     { path: 'localizacao', component: LocalizacaoComponent },
-  //     {
-  //       path: 'representantes',
-  //       component: RepresentantesComponent,
-  //       children: [{ path: 'cadastrar', component: CadastroComponent }],
-  //     },
-  //   ],
-  // },
   { path: 'create', loadChildren: () => import('../pages/clients/clients-create/clients-create.module').then((m) => m.ClientsCreateModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] },
 
   { path: 'update', loadChildren: () => import('../pages/clients/clients-update/clients-update.module').then((m) => m.ClientsUpdateModule), canActivate: [AuthGuard], canActivateChild: [AuthGuardChild] }
